@@ -3,113 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="agencia.postei — evoluímos marcas absurdas. Marketing do planejamento à entrega.">
-  <meta name="theme-color" content="#ECE6DC">
   <title>agencia.postei — evoluímos marcas absurdas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    /* ── PALETA 2 ── */
     :root {
-      --bg:          #ECE6DC;
-      --bg-soft:     #F4F0E8;
-      --stone:       #F0F0F0;
-      --stone-dark:  #E0DAD0;
-      --ink:         #1A1A1A;
-      --ink-soft:    #4A4A4A;
-      --ink-muted:   #8A8070;
-      --accent:      #FF0080;
-      --accent-soft: rgba(255,0,128,0.10);
-      --accent-dark: #CC0065;
-      --azul:        #1A4DFF;
-      --verde:       #39FF14;
-      --amarelo:     #FFD100;
-      --line:        rgba(0,0,0,0.09);
+      --preto:        #0D0D0D;
+      --creme:        #ECE6DC;
+      --creme-soft:   #F4F0E8;
+      --creme-stone:  #DDD7CC;
+      --creme-dark:   #CEC7BA;
+      --branco:       #F0F0F0;
+      --ink:          #1A1A1A;
+      --ink-soft:     #4A4A4A;
+      --ink-muted:    #8A8070;
+      --rosa:         #FF0080;
+      --azul:         #1A4DFF;
+      --amarelo:      #FFD100;
+      --verde:        #39FF14;
+      --line:         rgba(0,0,0,0.09);
+      --line-dark:    rgba(255,255,255,0.07);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      background: var(--creme);
       color: var(--ink);
       font-family: 'Instrument Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* ── SKIP LINK ── */
-    .skip-link {
-      position: absolute; top: -100%; left: 16px;
-      background: var(--ink); color: #fff;
-      padding: 8px 16px; border-radius: 4px;
-      font-size: 13px; font-weight: 500;
-      text-decoration: none; z-index: 999;
-    }
-    .skip-link:focus { top: 8px; }
-
     .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
 
-    /* ── REVEAL ANIMATION ── */
+    /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.on { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
-
-    /* ── SAFE AREA ── */
-    @supports (padding-top: env(safe-area-inset-top)) {
-      nav { padding-top: env(safe-area-inset-top); }
-      .nav-inner { height: calc(60px + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top); }
-    }
-
-    /* ── FOCUS STATES ── */
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 3px;
-    }
 
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 99;
-      background: rgba(236,230,220,.93);
+      background: rgba(236,230,220,.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
+
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
       height: 60px;
     }
-    .logo {
-      display: flex; align-items: center;
-      text-decoration: none; line-height: 0;
+
+    .logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 18px; font-weight: 500;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: -0.02em;
     }
-    .logo img { height: 40px; width: auto; display: block; }
+
+    .logo-text em { font-style: italic; color: var(--rosa); }
+
     .nav-btn {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 9px 18px; background: var(--ink); color: #fff;
+      padding: 9px 18px; background: var(--preto); color: var(--branco);
       font-size: 13px; font-weight: 500; border-radius: 5px;
-      text-decoration: none;
-      transition: background .18s;
-      touch-action: manipulation;
+      text-decoration: none; transition: background .18s;
     }
-    .nav-btn:hover { background: var(--accent); }
-    .nav-btn svg { width: 15px; height: 15px; fill: #fff; flex-shrink: 0; }
+
+    .nav-btn:hover { background: var(--rosa); }
 
     /* ── HERO ── */
     #hero {
       padding: 120px 0 88px;
+      background: var(--creme);
       border-bottom: 1px solid var(--line);
-      scroll-margin-top: 60px;
     }
+
     .hero-label {
-      font-size: 11px; font-weight: 500; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--ink-muted);
+      font-size: 17px; font-weight: 500; letter-spacing: -.01em;
+      color: var(--ink);
       margin-bottom: 32px;
     }
+    .hero-label em { color: var(--rosa); font-style: italic; font-family: 'Fraunces', serif; }
+
     .hero-h1 {
       font-family: 'Fraunces', serif;
       font-size: clamp(56px, 8.5vw, 112px);
@@ -117,74 +97,88 @@
       margin-bottom: 40px;
       text-wrap: balance;
     }
-    .hero-h1 em { font-style: italic; color: var(--accent); }
+
+    .hero-h1 em { font-style: italic; color: var(--rosa); }
 
     .hero-bottom {
       display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
       align-items: end; padding-top: 40px; border-top: 1px solid var(--line);
     }
-    .hero-sub {
-      font-size: 17px; color: var(--ink-soft); line-height: 1.65; max-width: 440px;
-    }
+
+    .hero-sub { font-size: 17px; color: var(--ink-soft); line-height: 1.65; max-width: 440px; }
+
     .hero-actions { display: flex; align-items: center; gap: 20px; justify-content: flex-end; }
 
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 26px; background: var(--accent); color: #fff;
+      padding: 14px 26px; background: var(--rosa); color: #fff;
       font-size: 14px; font-weight: 500; border-radius: 6px;
-      text-decoration: none;
-      transition: background .18s, transform .15s;
-      touch-action: manipulation;
+      text-decoration: none; transition: opacity .18s, transform .15s;
     }
-    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-    .btn-primary svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
 
-    .btn-link {
-      font-size: 13px; color: var(--ink-muted); text-decoration: none;
-      transition: color .18s;
-      touch-action: manipulation;
-    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-link { font-size: 13px; color: var(--ink-muted); text-decoration: none; }
     .btn-link:hover { color: var(--ink); }
 
     /* ── STATS BAR ── */
     .stats-bar {
       display: flex;
-      background: #0D0D0D;
-      border-bottom: none;
+      background: var(--preto);
     }
+
     .stat {
       flex: 1;
       display: flex; align-items: baseline; justify-content: center; gap: 10px;
       padding: 24px 32px; border-right: 1px solid rgba(255,255,255,0.06);
     }
+
     .stat:last-child { border-right: none; }
+
     .stat-n {
       font-family: 'Fraunces', serif; font-size: clamp(26px, 3vw, 36px);
-      font-weight: 500; line-height: 1; color: var(--stone);
-      font-variant-numeric: tabular-nums; white-space: nowrap;
+      font-weight: 500; line-height: 1; color: var(--branco);
+      font-variant-numeric: tabular-nums;
     }
+
     .stat-n em { font-style: italic; color: var(--verde); }
     .stat-d { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.3; }
 
     /* ── SEÇÕES ── */
-    .section { padding: clamp(64px, 8vw, 100px) 0; border-bottom: 1px solid var(--line); scroll-margin-top: 60px; }
-    .section--stone { background: var(--stone); }
+    .section {
+      padding: clamp(64px, 8vw, 100px) 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 60px;
+    }
+
+    .section--branco { background: var(--branco); }
+    .section--creme  { background: var(--creme); }
+    .section--preto  { background: var(--preto); border-color: transparent; }
 
     .sec-num {
       font-size: 11px; font-weight: 500; letter-spacing: .16em;
       text-transform: uppercase; color: var(--ink-muted); margin-bottom: 20px;
     }
+
+    .sec-num-light { color: rgba(255,255,255,0.25); }
+
     .sec-title {
       font-family: 'Fraunces', serif;
       font-size: clamp(32px, 4vw, 52px);
       font-weight: 500; line-height: 1.1; letter-spacing: -.02em;
       text-wrap: balance;
     }
-    .sec-title em { font-style: italic; color: var(--accent); }
+
+    .sec-title em        { font-style: italic; color: var(--rosa); }
+    .sec-title em.azul   { color: var(--azul); }
+    .sec-title em.verde  { color: var(--verde); }
+
     .sec-sub {
       font-size: 16px; color: var(--ink-soft); line-height: 1.7;
       max-width: 520px; margin-top: 16px;
     }
+
+    .sec-sub-light { color: rgba(255,255,255,0.45); }
 
     /* ── POSICIONAMENTO ── */
     #posicionamento .grid-2 {
@@ -192,165 +186,213 @@
       border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
       margin-top: 40px;
     }
+
     .comp-col { display: flex; flex-direction: column; }
     .comp-col + .comp-col { border-left: 1px solid var(--line); }
+
     .comp-head {
       padding: 14px 28px;
       font-size: 10px; font-weight: 500; letter-spacing: .16em;
       text-transform: uppercase; border-bottom: 1px solid var(--line);
     }
-    .comp-col:first-child .comp-head { background: var(--stone); color: var(--ink-muted); }
-    .comp-col:last-child  .comp-head { background: var(--ink); color: rgba(255,255,255,.4); }
-    .comp-col:last-child .comp-row   { background: var(--ink); }
+
+    .comp-col:first-child .comp-head { background: var(--creme-stone); color: var(--ink-muted); }
+    .comp-col:last-child  .comp-head { background: var(--preto); color: rgba(255,255,255,.35); }
+    .comp-col:last-child  .comp-row  { background: var(--preto); }
 
     .comp-row {
       display: flex; align-items: center; gap: 12px;
       padding: 16px 28px; font-size: 15px; line-height: 1.4;
       border-bottom: 1px solid var(--line);
     }
+
     .comp-row:last-child { border-bottom: none; }
-    .comp-col:first-child .comp-row { color: var(--ink-muted); text-decoration: line-through; text-decoration-color: rgba(0,0,0,.2); }
-    .comp-col:last-child  .comp-row { color: rgba(255,255,255,.8); border-color: rgba(255,255,255,.06); }
+    .comp-col:first-child .comp-row { color: var(--ink-muted); text-decoration: line-through; text-decoration-color: rgba(0,0,0,.18); }
+    .comp-col:last-child  .comp-row { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.06); }
 
     .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .comp-col:first-child .dot { background: rgba(0,0,0,.2); }
-    .comp-col:last-child  .dot { background: var(--accent); }
+    .comp-col:first-child .dot { background: rgba(0,0,0,.18); }
+    .comp-col:last-child  .dot { background: var(--rosa); }
 
     /* ── SERVIÇOS ── */
-    #servicos .list { margin-top: 40px; }
-    #como-funciona .list { margin-top: 40px; }
     .serv-item {
       display: grid; grid-template-columns: 80px 1fr 1fr;
       align-items: start; gap: 32px;
       padding: 36px 0; border-top: 1px solid var(--line);
     }
+
     .serv-item:last-child { border-bottom: 1px solid var(--line); }
+
     .serv-n {
       font-family: 'Fraunces', serif; font-size: 13px;
       font-style: italic; color: var(--azul); padding-top: 3px;
     }
-    .serv-title {
-      font-family: 'Fraunces', serif; font-size: 22px;
-      font-weight: 500; line-height: 1.15;
-    }
-    .serv-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
 
-    /* ── DIFERENCIAIS ── */
-    #diferenciais { background: var(--ink); border-color: transparent; }
-    #diferenciais .sec-num   { color: rgba(255,255,255,.3); }
+    .serv-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; line-height: 1.15; }
+    .serv-desc  { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+
+    /* ── DIFERENCIAIS — Preto ── */
     #diferenciais .sec-title { color: #fff; }
-    #diferenciais .sec-sub   { color: rgba(255,255,255,.5); }
 
     .dif-grid {
       display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
-      border: 1px solid rgba(255,255,255,.1); border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.08); border-radius: 6px;
       overflow: hidden; margin-top: 40px;
     }
+
     .dif-item {
-      padding: 44px 28px; border-right: 1px solid rgba(255,255,255,.1);
+      padding: 44px 28px; border-right: 1px solid rgba(255,255,255,.08);
       display: flex; flex-direction: column; gap: 10px;
     }
+
     .dif-item:last-child { border-right: none; }
+
     .dif-n {
       font-family: 'Fraunces', serif; font-size: 52px;
       font-weight: 500; line-height: 1;
       font-variant-numeric: tabular-nums;
     }
-    .dif-title { font-size: 14px; font-weight: 500; color: #fff; line-height: 1.3; }
-    .dif-desc  { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.6; }
 
-    /* ── CASES ── */
+    .dif-title { font-size: 14px; font-weight: 500; color: #fff; line-height: 1.3; }
+    .dif-desc  { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.6; }
+
+    /* ── RESULTADOS (áreas de impacto) ── */
     .cases-grid {
       display: grid; grid-template-columns: repeat(2,1fr); gap: 0;
-      border: 1px solid var(--stone-dark); border-radius: 6px;
+      border: 1px solid var(--creme-dark); border-radius: 6px;
       overflow: hidden; margin-top: 40px;
     }
+
     .case-card {
-      padding: 44px 36px; border-right: 1px solid var(--stone-dark);
-      border-bottom: 1px solid var(--stone-dark);
-      display: flex; flex-direction: column; gap: 14px;
+      padding: 44px 36px; border-right: 1px solid var(--creme-dark);
+      border-bottom: 1px solid var(--creme-dark);
+      display: flex; flex-direction: column; gap: 12px;
+      background: var(--branco);
       transition: background .18s;
     }
-    .case-card:hover { background: var(--bg); }
+
+    .case-card:hover { background: var(--creme-soft); }
     .case-card:nth-child(2n) { border-right: none; }
     .case-card:nth-child(3), .case-card:nth-child(4) { border-bottom: none; }
-    .case-metric {
-      font-family: 'Fraunces', serif; font-size: 60px;
-      font-weight: 500; line-height: 1;
-      font-variant-numeric: tabular-nums;
+
+    .area-label {
+      font-size: 11px; font-weight: 500; letter-spacing: .16em;
+      text-transform: uppercase;
     }
-    .case-desc { font-size: 15px; color: var(--ink); line-height: 1.5; }
-    .case-tags { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
-    .tag {
-      padding: 4px 10px;
-      border-radius: 4px; font-size: 11px; font-weight: 500;
-      letter-spacing: .06em; text-transform: uppercase;
+
+    .area-title {
+      font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500;
+      line-height: 1.2;
     }
-    .tag-time { font-size: 12px; color: var(--ink-muted); }
+
+    .case-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
 
     /* ── CLIENTES ── */
-    #clientes { background: var(--bg); }
     .clientes-intro {
       display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
       align-items: start; margin-bottom: 40px;
     }
+
     .clientes-note {
       font-size: 14px; color: var(--ink-soft); line-height: 1.7;
       padding: 24px 28px; border-left: 2px solid var(--azul);
-      background: var(--stone); border-radius: 0 6px 6px 0;
+      background: var(--branco); border-radius: 0 6px 6px 0;
     }
 
     .logos-grid {
       display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
-      border: 1px solid var(--stone-dark); border-radius: 6px; overflow: hidden;
+      border: 1px solid var(--creme-dark); border-radius: 6px; overflow: hidden;
     }
+
     .logo-cell {
-      background: var(--stone); padding: 40px 32px;
+      background: var(--branco); padding: 40px 32px;
       display: flex; align-items: center; justify-content: center;
-      border-right: 1px solid var(--stone-dark);
+      border-right: 1px solid var(--creme-dark);
       transition: background .18s;
     }
+
     .logo-cell:last-child { border-right: none; }
-    .logo-cell:hover { background: var(--bg); }
-    .logo-cell img {
-      max-width: 136px; width: 100%; height: auto;
-      filter: grayscale(1) contrast(1.1);
-      mix-blend-mode: multiply;
-      opacity: .75;
-      transition: opacity .18s;
+    .logo-cell:hover { background: var(--creme-soft); }
+
+    .logo-placeholder {
+      width: 80px; height: 24px;
+      background: var(--creme-stone);
+      border-radius: 3px;
     }
-    .logo-cell:hover img { opacity: 1; }
+
+    /* ── CTA INTERMEDIÁRIO ── */
+    .cta-strip {
+      background: var(--preto);
+      padding: 52px 0;
+      border-top: 1px solid rgba(255,255,255,.04);
+    }
+
+    .cta-strip-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+
+    .cta-strip-text {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 500; color: rgba(255,255,255,.75);
+      line-height: 1.3; max-width: 560px;
+    }
 
     /* ── TIME ── */
     .time-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      border: 1px solid var(--stone-dark); border-radius: 6px;
+      border: 1px solid var(--creme-dark); border-radius: 6px;
       overflow: hidden; margin-top: 40px;
     }
+
     .pessoa {
       padding: 48px 40px; display: flex; flex-direction: column; gap: 14px;
-      border-right: 1px solid var(--stone-dark);
-      background: var(--stone);
+      border-right: 1px solid var(--creme-dark);
+      background: var(--branco);
     }
+
     .pessoa:last-child { border-right: none; }
+
     .pessoa-av {
       width: 48px; height: 48px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500;
       color: #fff; margin-bottom: 4px;
     }
+
     .pessoa-role {
       font-size: 11px; font-weight: 500; letter-spacing: .14em;
-      text-transform: uppercase; color: var(--accent);
+      text-transform: uppercase;
     }
+
     .pessoa-nome { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 500; }
     .pessoa-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
 
+    /* ── FAQ ── */
+    .faq-list { max-width: 760px; margin-top: 40px; }
+
+    .faq-item {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid var(--line); }
+
+    .faq-q {
+      font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500;
+      letter-spacing: -.01em; margin-bottom: 10px; line-height: 1.25;
+    }
+
+    .faq-a { font-size: 15px; color: var(--ink-soft); line-height: 1.7; }
+
     /* ── CTA FINAL ── */
-    #cta { background: #0D0D0D; padding: 100px 0; }
+    #cta { background: var(--preto); padding: 100px 0; }
+
     .cta-inner {
       display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
     }
+
     .cta-h {
       font-family: 'Fraunces', serif;
       font-size: clamp(40px, 5.5vw, 68px);
@@ -358,191 +400,178 @@
       letter-spacing: -.02em; color: #fff;
       text-wrap: balance;
     }
-    .cta-h em { font-style: italic; color: var(--accent); }
-    .cta-right { display: flex; flex-direction: column; gap: 24px; }
-    .cta-desc { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.7; }
 
-    .btn-white {
+    .cta-h em { font-style: italic; color: var(--rosa); }
+
+    .cta-right { display: flex; flex-direction: column; gap: 24px; }
+    .cta-desc { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.7; }
+
+    .btn-cta {
       display: inline-flex; align-items: center; gap: 10px;
-      padding: 16px 30px; background: var(--accent); color: #fff;
+      padding: 16px 30px; background: var(--rosa); color: #fff;
       font-size: 15px; font-weight: 500; border-radius: 6px;
       text-decoration: none; align-self: flex-start;
       transition: transform .15s, opacity .15s;
-      touch-action: manipulation;
     }
-    .btn-white:hover { transform: translateY(-2px); opacity: .88; }
-    .btn-white:focus-visible { outline-color: var(--accent); }
-    .btn-white svg { width: 17px; height: 17px; fill: #fff; flex-shrink: 0; }
+
+    .btn-cta:hover { transform: translateY(-2px); opacity: 0.9; }
     .cta-note { font-size: 13px; color: rgba(255,255,255,.3); }
 
     /* ── FOOTER ── */
-    footer { background: var(--ink); padding: 40px 0; }
+    footer { background: var(--preto); padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+
     .foot-inner {
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 20px;
     }
-    .foot-logo { display: flex; align-items: center; text-decoration: none; line-height: 0; }
-    .foot-logo img { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); opacity: .6; }
+
+    .foot-logo-text {
+      font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500;
+      color: rgba(255,255,255,0.5); text-decoration: none;
+    }
+
+    .foot-logo-text em { font-style: italic; color: var(--rosa); opacity: 0.6; }
+
     .foot-links { display: flex; gap: 24px; }
-    .foot-links a { font-size: 13px; color: rgba(255,255,255,.35); text-decoration: none; transition: color .18s; }
-    .foot-links a:hover { color: rgba(255,255,255,.75); }
-    .foot-copy { font-size: 12px; color: rgba(255,255,255,.2); }
+    .foot-links a { font-size: 13px; color: rgba(255,255,255,.3); text-decoration: none; transition: color .18s; }
+    .foot-links a:hover { color: rgba(255,255,255,.7); }
+    .foot-copy { font-size: 12px; color: rgba(255,255,255,.18); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      .hero-bottom    { grid-template-columns: 1fr; }
-      .hero-actions   { justify-content: flex-start; }
-      .stats-bar      { flex-wrap: wrap; }
-      .stats-bar .stat { flex: 1 1 40%; }
-      .stats-bar .stat:nth-child(2) { border-right: none; }
-      .stats-bar .stat:last-child   { flex: 1 1 100%; border-top: 1px solid var(--stone-dark); border-right: none; }
-      #posicionamento .grid-2       { grid-template-columns: 1fr; }
-      .comp-col + .comp-col         { border-left: none; border-top: 1px solid var(--line); }
-      .serv-item      { grid-template-columns: 48px 1fr; }
-      .serv-desc      { grid-column: 2; }
-      .dif-grid       { grid-template-columns: repeat(2,1fr); }
-      .cases-grid     { grid-template-columns: 1fr; }
-      .case-card:nth-child(2n)  { border-right: none; }
-      .case-card:nth-child(3)   { border-bottom: 1px solid var(--stone-dark); }
+      .hero-bottom  { grid-template-columns: 1fr; }
+      .hero-actions { justify-content: flex-start; }
+      .stats-bar    { flex-wrap: wrap; }
+      .stat         { flex: 1 1 40%; }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:last-child   { flex: 1 1 100%; border-top: 1px solid rgba(255,255,255,.06); border-right: none; }
+      #posicionamento .grid-2 { grid-template-columns: 1fr; }
+      .comp-col + .comp-col   { border-left: none; border-top: 1px solid var(--line); }
+      .serv-item    { grid-template-columns: 48px 1fr; }
+      .serv-desc    { grid-column: 2; }
+      .dif-grid     { grid-template-columns: repeat(2,1fr); }
+      .cases-grid   { grid-template-columns: 1fr; }
+      .case-card:nth-child(2n) { border-right: none; }
+      .case-card:nth-child(3)  { border-bottom: 1px solid var(--creme-dark); }
       .clientes-intro { grid-template-columns: 1fr; }
-      .logos-grid     { grid-template-columns: repeat(2,1fr); }
-      .logos-grid .logo-cell:nth-child(2n)   { border-right: none; }
-      .logos-grid .logo-cell:nth-child(1),
-      .logos-grid .logo-cell:nth-child(2)    { border-bottom: 1px solid var(--stone-dark); }
-      .time-grid      { grid-template-columns: 1fr; }
-      .pessoa         { border-right: none; border-bottom: 1px solid var(--stone-dark); }
-      .cta-inner      { grid-template-columns: 1fr; gap: 40px; }
-    }
-    @media (max-width: 520px) {
-      .container  { padding: 0 20px; }
-      .dif-grid   { grid-template-columns: 1fr; }
-      .dif-item   { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
-      .logos-grid { grid-template-columns: repeat(2,1fr); }
+      .logos-grid   { grid-template-columns: repeat(2,1fr); }
+      .time-grid    { grid-template-columns: 1fr; }
+      .pessoa       { border-right: none; border-bottom: 1px solid var(--creme-dark); }
+      .cta-inner    { grid-template-columns: 1fr; gap: 40px; }
+      .cta-strip-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Ir para o conteúdo</a>
-
 <!-- NAV -->
-<nav aria-label="Navegação principal">
+<nav>
   <div class="container nav-inner">
-    <a href="#" class="logo" translate="no">
-      <img src="logos/logo-principal.svg" alt="agencia.postei" width="107" height="40">
-    </a>
-    <a href="https://wa.me/5516993269757?text=Oi!%20Vim%20pelo%20site%20e%20quero%20entender%20como%20voc%C3%AAs%20trabalham."
-       class="nav-btn" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
+    <a href="#" class="logo-text" translate="no">agencia.<em>postei</em></a>
+    <a href="#" class="nav-btn">WhatsApp ↗</a>
   </div>
 </nav>
 
-<main id="main">
+<main>
 
 <!-- HERO -->
 <section id="hero">
   <div class="container">
-    <p class="hero-label" translate="no">agencia.postei &#8212; marketing</p>
+    <p class="hero-label">para marcas que querem ser <em>absurdas</em></p>
     <h1 class="hero-h1">
       evoluímos<br>marcas<br><em>absurdas.</em>
     </h1>
     <div class="hero-bottom">
-      <p class="hero-sub">Marketing não é um post &#8212; é um ecossistema. Estratégia, criação, vídeo e mídia paga do planejamento à entrega, por inteiro.</p>
+      <p class="hero-sub">Para quem não quer mais adivinhar o que funciona. A maioria das agências faz execução sem estratégia — ou estratégia sem execução. Marketing de verdade é o ecossistema completo: estratégia, criação, vídeo e mídia paga, do diagnóstico ao resultado.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/5516993269757?text=Oi!%20Vim%20pelo%20site%20e%20quero%20entender%20como%20voc%C3%AAs%20trabalham."
-           class="btn-primary" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Conversar agora
-        </a>
-        <a href="#servicos" class="btn-link">ver o que fazemos &#8595;</a>
+        <a href="#" class="btn-primary">↗ Conversar agora</a>
+        <a href="#servicos" class="btn-link">ver o que fazemos ↓</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- STATS BAR -->
-<div class="stats-bar reveal" role="list" aria-label="Números da agência">
-  <div class="stat" role="listitem">
+<div class="stats-bar reveal">
+  <div class="stat">
     <div class="stat-n">4</div>
-    <div class="stat-d">anos de mercado</div>
+    <div class="stat-d">anos de experiência em múltiplos segmentos</div>
   </div>
-  <div class="stat" role="listitem">
+  <div class="stat">
     <div class="stat-n">+15</div>
-    <div class="stat-d">segmentos atendidos</div>
+    <div class="stat-d">segmentos atendidos — de estética a jurídico, de food a tecnologia</div>
   </div>
-  <div class="stat" role="listitem">
+  <div class="stat">
     <div class="stat-n"><em>100%</em></div>
-    <div class="stat-d">operação interna &#8212; sem terceiros</div>
+    <div class="stat-d">operação interna — você fala com quem faz, do início ao fim</div>
   </div>
 </div>
 
-<!-- 01 POSICIONAMENTO -->
-<section class="section" id="posicionamento">
+<!-- 01 POSICIONAMENTO — Creme -->
+<section class="section section--creme" id="posicionamento">
   <div class="container">
-    <p class="sec-num reveal">01 &#8212; posicionamento</p>
+    <p class="sec-num reveal">01 — posicionamento</p>
     <div class="reveal">
       <h2 class="sec-title">Marketing de verdade<br>não é o que a maioria vende.</h2>
-      <p class="sec-sub">A maioria das agências entrega execução sem estratégia, ou estratégia sem execução. A gente faz os dois &#8212; do diagnóstico ao resultado, tudo dentro de casa.</p>
+      <p class="sec-sub">A maioria das agências entrega execução sem estratégia, ou estratégia sem execução. A gente faz os dois — do diagnóstico ao resultado, tudo dentro de casa.</p>
     </div>
     <div class="grid-2 reveal">
       <div class="comp-col">
         <div class="comp-head">o que não somos</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Agência de posts</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Pacote de 12 artes por mês</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Execução sem estratégia</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Agência que some após o briefing</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Fornecedor de serviço isolado</div>
+        <div class="comp-row"><span class="dot"></span>Agência de posts</div>
+        <div class="comp-row"><span class="dot"></span>Pacote de 12 artes por mês</div>
+        <div class="comp-row"><span class="dot"></span>Execução sem estratégia</div>
+        <div class="comp-row"><span class="dot"></span>Agência que some após o briefing</div>
+        <div class="comp-row"><span class="dot"></span>Fornecedor de serviço isolado</div>
       </div>
       <div class="comp-col">
         <div class="comp-head">o que somos</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Parceiros de marketing do negócio</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Ecossistema completo e integrado</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Diagnóstico + planejamento + entrega</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Time que fica e que responde</div>
-        <div class="comp-row"><span class="dot" aria-hidden="true"></span>Resultado mensurado todo mês</div>
+        <div class="comp-row"><span class="dot"></span>Parceiros de marketing do negócio</div>
+        <div class="comp-row"><span class="dot"></span>Ecossistema completo e integrado</div>
+        <div class="comp-row"><span class="dot"></span>Diagnóstico + planejamento + entrega</div>
+        <div class="comp-row"><span class="dot"></span>Time que fica e que responde</div>
+        <div class="comp-row"><span class="dot"></span>Resultado mensurado todo mês</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 02 SERVIÇOS -->
-<section class="section section--stone" id="servicos">
+<!-- 02 SERVIÇOS — Branco -->
+<section class="section section--branco" id="servicos">
   <div class="container">
-    <p class="sec-num reveal">02 &#8212; o que fazemos</p>
+    <p class="sec-num reveal">02 — o que fazemos</p>
     <div class="reveal">
-      <h2 class="sec-title">Seis frentes.<br><em>Um ecossistema.</em></h2>
-      <p class="sec-sub">Não vendemos serviços avulsos. Cada frente trabalha conectada às outras &#8212; o resultado aparece no negócio, não só no feed.</p>
+      <h2 class="sec-title">Seis frentes.<br><em class="azul">Um ecossistema.</em></h2>
+      <p class="sec-sub">Não vendemos serviços avulsos. Cada frente trabalha conectada às outras — o resultado aparece no negócio, não só no feed.</p>
     </div>
-    <div class="list reveal">
+    <div class="reveal" style="margin-top:40px">
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">01</span>
+        <span class="serv-n">01</span>
         <h3 class="serv-title">Inteligência &amp; Pesquisa</h3>
         <p class="serv-desc">Diagnóstico de marca, estudo de audiência, análise de concorrência e social listening. Chegamos sabendo antes de propor qualquer coisa.</p>
       </div>
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">02</span>
+        <span class="serv-n">02</span>
         <h3 class="serv-title">Planejamento &amp; Growth</h3>
         <p class="serv-desc">Plano de conteúdo, funis de conversão, OKRs e calendário estratégico. Cada post tem uma razão de existir.</p>
       </div>
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">03</span>
+        <span class="serv-n">03</span>
         <h3 class="serv-title">Criação &amp; Produção</h3>
-        <p class="serv-desc">Direção criativa, design, redação, edição de vídeo e captação audiovisual &#8212; tudo interno. Sem terceirizar o que prometemos.</p>
+        <p class="serv-desc">Direção criativa, design, redação, edição de vídeo e captação audiovisual — tudo interno. Sem terceirizar o que prometemos.</p>
       </div>
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">04</span>
+        <span class="serv-n">04</span>
         <h3 class="serv-title">Distribuição &amp; Influência</h3>
         <p class="serv-desc">Plano de influenciadores, gestão de creators, PR social e embaixadores. Para quando o alcance orgânico precisa de escala.</p>
       </div>
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">05</span>
+        <span class="serv-n">05</span>
         <h3 class="serv-title">Canais &amp; Comunidade</h3>
         <p class="serv-desc">Gestão de redes, atendimento ao cliente e gestão de crises. Sua marca presente e respondendo sem você precisar olhar.</p>
       </div>
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">06</span>
+        <span class="serv-n">06</span>
         <h3 class="serv-title">Mídia Paga &amp; Commerce</h3>
         <p class="serv-desc">Planejamento e operação de anúncios, social commerce e relatórios. Cada real investido sabe pra onde vai.</p>
       </div>
@@ -550,164 +579,200 @@
   </div>
 </section>
 
-<!-- 03 DIFERENCIAIS -->
-<section class="section" id="diferenciais">
+<!-- 03 CLIENTES — Creme -->
+<section class="section section--creme" id="clientes">
   <div class="container">
-    <p class="sec-num reveal">03 &#8212; por que nós</p>
-    <div class="reveal">
-      <h2 class="sec-title">Não aprendemos<br>no seu negócio.</h2>
-      <p class="sec-sub">Em 4 anos atendemos negócios muito diferentes &#8212; e isso nos deu algo que agência nova não tem: chegamos no seu negócio já sabendo o que funciona.</p>
+    <p class="sec-num reveal">03 — marcas que confiaram</p>
+    <div class="clientes-intro reveal">
+      <h2 class="sec-title">Capacidade técnica<br>comprovada em<br><em class="azul">grandes marcas.</em></h2>
+      <div class="clientes-note">
+        Trabalhos de produção e edição audiovisual entregues para estas marcas. Prova de capacidade técnica em projetos de alta exigência — aplicada hoje na produção completa dos nossos clientes de marketing.
+      </div>
     </div>
-    <div class="dif-grid reveal">
-      <div class="dif-item">
-        <div class="dif-n" style="color:#39FF14">4</div>
-        <div class="dif-title">anos de mercado</div>
-        <div class="dif-desc">Histórico real em múltiplos segmentos. Não estamos aprendendo com você.</div>
-      </div>
-      <div class="dif-item">
-        <div class="dif-n" style="color:#1A4DFF">+15</div>
-        <div class="dif-title">segmentos atendidos</div>
-        <div class="dif-desc">De estética a tecnologia, de food a jurídico. Perspectiva que agência especializada não tem.</div>
-      </div>
-      <div class="dif-item">
-        <div class="dif-n" style="color:#FFD100">100%</div>
-        <div class="dif-title">operação interna</div>
-        <div class="dif-desc">Estratégia, criação e vídeo dentro de casa. Sem intermediários, sem telefone sem fio.</div>
-      </div>
-      <div class="dif-item">
-        <div class="dif-n" style="color:#FF0080">0</div>
-        <div class="dif-title">camadas entre você e quem executa</div>
-        <div class="dif-desc">Você fala direto com Diego e Alice &#8212; quem planeja é quem entrega.</div>
-      </div>
+    <div class="logos-grid reveal">
+      <div class="logo-cell"><div class="logo-placeholder"></div></div>
+      <div class="logo-cell"><div class="logo-placeholder"></div></div>
+      <div class="logo-cell"><div class="logo-placeholder"></div></div>
+      <div class="logo-cell"><div class="logo-placeholder"></div></div>
     </div>
   </div>
 </section>
 
-<!-- 04 CASES -->
-<section class="section section--stone" id="cases">
+<!-- 04 ONDE O RESULTADO APARECE — Branco -->
+<section class="section section--branco" id="resultados">
   <div class="container">
-    <p class="sec-num reveal">04 &#8212; resultados</p>
+    <p class="sec-num reveal">04 — onde o resultado aparece</p>
     <div class="reveal">
-      <h2 class="sec-title">Números que aparecem<br>no negócio, <em>não só no feed.</em></h2>
-      <p class="sec-sub">Resultados reais em segmentos diferentes. Sem nome para preservar confidencialidade &#8212; com número para provar que aconteceu.</p>
+      <h2 class="sec-title">O resultado aparece<br>no negócio, <em>não no relatório.</em></h2>
+      <p class="sec-sub">Cada negócio tem um objetivo diferente. O que medimos e entregamos depende do que importa para você — não de um pacote pronto.</p>
     </div>
     <div class="cases-grid reveal">
       <div class="case-card">
-        <div class="case-metric" style="color:#FF0080">+340%</div>
-        <p class="case-desc">de alcance orgânico em 60 dias após diagnóstico e reestruturação de estratégia de conteúdo</p>
-        <div class="case-tags"><span class="tag" style="background:rgba(255,0,128,0.08);color:#FF0080">saúde</span><span class="tag-time">60 dias</span></div>
+        <p class="area-label" style="color:var(--rosa)">presença orgânica</p>
+        <h3 class="area-title">Sua marca presente onde seu público está — antes de ele precisar de você.</h3>
+        <p class="case-desc">Conteúdo estratégico que constrói reconhecimento, cria audiência e gera demanda de forma consistente.</p>
       </div>
       <div class="case-card">
-        <div class="case-metric" style="color:#1A4DFF">+218%</div>
-        <p class="case-desc">de engajamento orgânico com implementação de pilares de conteúdo e calendário estratégico</p>
-        <div class="case-tags"><span class="tag" style="background:rgba(26,77,255,0.08);color:#1A4DFF">jurídico</span><span class="tag-time">90 dias</span></div>
+        <p class="area-label" style="color:var(--azul)">geração de demanda</p>
+        <h3 class="area-title">Funis que transformam audiência em leads e leads em clientes.</h3>
+        <p class="case-desc">Planejamento e execução de conteúdo e mídia paga com rastreamento de origem e mensuração de cada etapa.</p>
       </div>
       <div class="case-card">
-        <div class="case-metric" style="color:#39FF14;-webkit-text-stroke:0.5px #0a6a00">3.2&#215;</div>
-        <p class="case-desc">de retorno sobre investimento em mídia paga com otimização de segmentação e criativos</p>
-        <div class="case-tags"><span class="tag" style="background:rgba(57,255,20,0.1);color:#1a7a00">e-commerce</span><span class="tag-time">45 dias</span></div>
+        <p class="area-label" style="color:#1a7a00">autoridade de marca</p>
+        <h3 class="area-title">Marcas que são lembradas antes de serem buscadas.</h3>
+        <p class="case-desc">Posicionamento, direção criativa e consistência que diferenciam sua marca das genéricas no mesmo segmento.</p>
       </div>
       <div class="case-card">
-        <div class="case-metric" style="color:#8a6e00">&#8722;60%</div>
-        <p class="case-desc">no custo por lead qualificado após reformulação de funil e landing pages de captura</p>
-        <div class="case-tags"><span class="tag" style="background:rgba(255,209,0,0.12);color:#8a6e00">educação</span><span class="tag-time">30 dias</span></div>
+        <p class="area-label" style="color:#8a6e00">eficiência em mídia</p>
+        <h3 class="area-title">Cada real investido em tráfego pago com destino e retorno definidos.</h3>
+        <p class="case-desc">Segmentação, criativos e otimização contínua para que o investimento em mídia gere resultado mensurável.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 05 CLIENTES -->
-<section class="section" id="clientes">
-  <div class="container">
-    <p class="sec-num reveal">05 &#8212; marcas que confiaram</p>
-    <div class="clientes-intro reveal">
-      <h2 class="sec-title">Capacidade técnica<br>comprovada em<br><em>grandes marcas.</em></h2>
-      <div class="clientes-note">
-        Trabalhos de produção e edição audiovisual entregues para estas marcas. Prova de capacidade técnica em projetos de alta exigência &#8212; aplicada hoje na produção completa dos nossos clientes de marketing.
-      </div>
-    </div>
-    <div class="logos-grid reveal" role="list" aria-label="Marcas atendidas">
-      <div class="logo-cell" role="listitem">
-        <img src="logos/IFood_logo.svg.png" alt="iFood" width="136" height="56" loading="lazy">
-      </div>
-      <div class="logo-cell" role="listitem">
-        <img src="logos/Schneider_Electric_2007.svg.png" alt="Schneider Electric" width="136" height="56" loading="lazy">
-      </div>
-      <div class="logo-cell" role="listitem">
-        <img src="logos/COP30_Official_Logo.svg_.png" alt="COP30" width="136" height="56" loading="lazy">
-      </div>
-      <div class="logo-cell" role="listitem">
-        <img src="logos/beneficios-medicar.png" alt="Medicar" width="136" height="56" loading="lazy">
-      </div>
-    </div>
+<!-- CTA INTERMEDIÁRIO 1 -->
+<div class="cta-strip reveal">
+  <div class="container cta-strip-inner">
+    <p class="cta-strip-text">Quer saber qual dessas frentes faz mais sentido para o seu negócio agora?</p>
+    <a href="#" class="btn-cta">↗ Conversar agora</a>
   </div>
-</section>
+</div>
 
-<!-- 06 COMO FUNCIONA -->
-<section class="section section--stone" id="como-funciona">
+<!-- 05 COMO FUNCIONA — Branco -->
+<section class="section section--branco" id="como-funciona">
   <div class="container">
-    <p class="sec-num reveal">06 &#8212; como funciona</p>
+    <p class="sec-num reveal">05 — como funciona</p>
     <div class="reveal">
       <h2 class="sec-title">Do primeiro contato<br>ao resultado, <em>três passos.</em></h2>
       <p class="sec-sub">Sem briefings genéricos. Sem proposta antes de entender. Sem executar antes de planejar.</p>
     </div>
-    <div class="list reveal">
+    <div class="reveal" style="margin-top:40px">
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">01</span>
+        <span class="serv-n">01</span>
         <h3 class="serv-title">Diagnóstico</h3>
-        <p class="serv-desc">Começamos entendendo o negócio &#8212; metas, audiência, concorrência e o que já foi tentado. Nenhuma proposta antes disso. Você não paga para entender o que precisa.</p>
+        <p class="serv-desc">Começamos entendendo o negócio — metas, audiência, concorrência e o que já foi tentado. Nenhuma proposta antes disso.</p>
       </div>
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">02</span>
+        <span class="serv-n">02</span>
         <h3 class="serv-title">Planejamento</h3>
-        <p class="serv-desc">Com o diagnóstico em mãos, construímos a estratégia: pilares de conteúdo, funis, calendário e metas mensuráveis. Cada decisão tem uma razão &#8212; e você aprova antes de sair do papel.</p>
+        <p class="serv-desc">Com o diagnóstico em mãos, construímos a estratégia: pilares de conteúdo, funis, calendário e metas mensuráveis.</p>
       </div>
       <div class="serv-item">
-        <span class="serv-n" aria-hidden="true">03</span>
+        <span class="serv-n">03</span>
         <h3 class="serv-title">Execução &amp; Resultado</h3>
-        <p class="serv-desc">Produzimos, distribuímos, monitoramos e reportamos. Todo mês você recebe um relatório que mostra o que gerou resultado &#8212; não o que foi publicado.</p>
+        <p class="serv-desc">Produzimos, distribuímos, monitoramos e reportamos. Todo mês você recebe um relatório que mostra o que gerou resultado.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 07 TIME -->
-<section class="section" id="time">
+<!-- CTA INTERMEDIÁRIO 2 -->
+<div class="cta-strip reveal">
+  <div class="container cta-strip-inner">
+    <p class="cta-strip-text">Pronto para começar pelo diagnóstico?</p>
+    <a href="#" class="btn-cta">↗ Falar no WhatsApp</a>
+  </div>
+</div>
+
+<!-- 06 DIFERENCIAIS — Preto -->
+<section class="section section--preto" id="diferenciais">
   <div class="container">
-    <p class="sec-num reveal">07 &#8212; quem executa</p>
+    <p class="sec-num reveal sec-num-light">06 — por que nós</p>
+    <div class="reveal">
+      <h2 class="sec-title">Não aprendemos<br>no seu negócio.</h2>
+      <p class="sec-sub sec-sub-light">Em 4 anos atendemos negócios muito diferentes — e isso nos deu algo que agência nova não tem: chegamos no seu negócio já sabendo o que funciona.</p>
+    </div>
+    <div class="dif-grid reveal">
+      <div class="dif-item">
+        <div class="dif-n" style="color:var(--verde)">4</div>
+        <div class="dif-title">anos de mercado</div>
+        <div class="dif-desc">Histórico real em múltiplos segmentos.</div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-n" style="color:var(--azul)">+15</div>
+        <div class="dif-title">segmentos atendidos</div>
+        <div class="dif-desc">De estética a tecnologia, de food a jurídico.</div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-n" style="color:var(--amarelo)">100%</div>
+        <div class="dif-title">operação interna</div>
+        <div class="dif-desc">Estratégia, criação e vídeo dentro de casa.</div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-n" style="color:var(--rosa)">0</div>
+        <div class="dif-title">camadas entre você e quem executa</div>
+        <div class="dif-desc">Você fala direto com Diego e Alice.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 TIME — Creme -->
+<section class="section section--creme" id="time">
+  <div class="container">
+    <p class="sec-num reveal">07 — quem executa</p>
     <div class="reveal">
       <h2 class="sec-title">Você fala<br>com <em>quem faz.</em></h2>
       <p class="sec-sub">Sem gerente de conta que repassa. Sem equipe que você nunca vai conhecer. Diego e Alice cuidam do negócio do início ao fim.</p>
     </div>
     <div class="time-grid reveal">
       <div class="pessoa">
-        <div class="pessoa-av" style="background:var(--ink)" aria-hidden="true">DL</div>
+        <div class="pessoa-av" style="background:var(--preto)">DL</div>
         <p class="pessoa-role" style="color:var(--azul)">Estratégia &amp; Comercial</p>
         <h3 class="pessoa-nome">Diego Lima</h3>
         <p class="pessoa-desc">Responsável por diagnóstico, planejamento estratégico e relacionamento com clientes. Quem entende o negócio e garante que a estratégia está conectada ao resultado.</p>
       </div>
       <div class="pessoa">
-        <div class="pessoa-av" style="background:var(--accent)" aria-hidden="true">AL</div>
-        <p class="pessoa-role" style="color:var(--accent)">Criação &amp; Execução</p>
+        <div class="pessoa-av" style="background:var(--rosa)">AL</div>
+        <p class="pessoa-role" style="color:var(--rosa)">Criação &amp; Execução</p>
         <h3 class="pessoa-nome">Alice Lima</h3>
-        <p class="pessoa-desc">Responsável por toda a produção &#8212; design, redação, vídeo e gestão de canais. O que é prometido é entregue por quem prometeu.</p>
+        <p class="pessoa-desc">Responsável por toda a produção — design, redação, vídeo e gestão de canais. O que é prometido é entregue por quem prometeu.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
+<!-- 08 FAQ — Branco -->
+<section class="section section--branco" id="faq">
+  <div class="container">
+    <p class="sec-num reveal">08 — dúvidas frequentes</p>
+    <div class="reveal">
+      <h2 class="sec-title">Perguntas que<br><em>todo mundo faz.</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <h3 class="faq-q">Vocês atendem o meu segmento?</h3>
+        <p class="faq-a">Sim. Em 4 anos trabalhamos com mais de 15 segmentos diferentes — de estética a tecnologia, de food a jurídico. Não importa o ramo: chegamos sabendo o que funciona.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Qual é o investimento?</h3>
+        <p class="faq-a">Nossos projetos começam a partir de R$1.000/mês. O valor final varia conforme as frentes contratadas e o escopo do trabalho — definimos isso juntos na conversa inicial, sem surpresas depois.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Quanto tempo até ver resultado?</h3>
+        <p class="faq-a">Depende do objetivo e do momento de cada negócio. Por isso começamos com um diagnóstico — para definir metas reais para o seu contexto, não uma promessa genérica de prazo.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Como funciona depois que eu entrar em contato?</h3>
+        <p class="faq-a">Marcamos uma conversa de 15 minutos para entender o momento do negócio — sem apresentação genérica, sem pitch de vendas. Se fizer sentido para os dois lados, seguimos para o diagnóstico.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Vocês terceirizam alguma parte do trabalho?</h3>
+        <p class="faq-a">Não. Estratégia, criação, vídeo e gestão são executados internamente por Diego e Alice. O que prometemos é entregue por quem prometeu — sem intermediários.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL — Preto + Rosa -->
 <section id="cta">
   <div class="container">
     <div class="cta-inner reveal">
       <h2 class="cta-h">Pronto para parar de adivinhar o que <em>funciona?</em></h2>
       <div class="cta-right">
-        <p class="cta-desc">Manda uma mensagem e a gente marca uma conversa de 15 minutos. Sem apresentação genérica &#8212; você conta o momento do negócio e a gente mostra como trabalhamos.</p>
-        <a href="https://wa.me/5516993269757?text=Oi!%20Vim%20pelo%20site%20e%20quero%20entender%20como%20voc%C3%AAs%20trabalham."
-           class="btn-white" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Falar no WhatsApp
-        </a>
+        <p class="cta-desc">Manda uma mensagem e a gente marca uma conversa de 15 minutos. Sem apresentação genérica — você conta o momento do negócio e a gente mostra como trabalhamos.</p>
+        <a href="#" class="btn-cta">↗ Falar no WhatsApp</a>
         <p class="cta-note">Respondemos em até 2 horas em dias úteis.</p>
       </div>
     </div>
@@ -719,20 +784,20 @@
 <!-- FOOTER -->
 <footer>
   <div class="container foot-inner">
-    <a href="#" class="foot-logo" translate="no">
-      <img src="logos/logo-principal.svg" alt="agencia.postei" width="96" height="36">
-    </a>
-    <nav class="foot-links" aria-label="Links do rodapé">
-      <a href="https://instagram.com/agencia.postei" target="_blank" rel="noopener">@agencia.postei</a>
-      <a href="mailto:agenciapontopostei@gmail.com">contato</a>
+    <a href="#" class="foot-logo-text" translate="no">agencia.<em>postei</em></a>
+    <nav class="foot-links">
+      <a href="#">@agencia.postei</a>
+      <a href="#">contato</a>
     </nav>
-    <p class="foot-copy">&#169; 2025 agencia.postei</p>
+    <p class="foot-copy">© 2026 agencia.postei</p>
   </div>
 </footer>
 
 <script>
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+    });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
