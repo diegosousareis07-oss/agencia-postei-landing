@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR" style="color-scheme: light">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M8QCCF9W');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>agencia.postei — evoluímos marcas absurdas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>agencia.postei — Agência de Marketing em Ribeirão Preto</title>
+  <meta name="description" content="Agência de marketing em Ribeirão Preto com atendimento nacional. Diagnóstico, estratégia e execução do mesmo time. Sem terceirização. A partir de R$1.000/mês.">
+  <link rel="canonical" href="https://www.pontopostei.com.br/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.pontopostei.com.br/">
+  <meta property="og:title" content="agencia.postei — Agência de Marketing em Ribeirão Preto">
+  <meta property="og:description" content="Diagnóstico, estratégia e execução do mesmo time. Sem terceirização. Atendimento nacional a partir de R$1.000/mês.">
+  <meta property="og:image" content="https://www.pontopostei.com.br/og-image.svg">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="agencia.postei">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="agencia.postei — Agência de Marketing em Ribeirão Preto">
+  <meta name="twitter:description" content="Diagnóstico, estratégia e execução do mesmo time. Sem terceirização. A partir de R$1.000/mês.">
+  <meta name="twitter:image" content="https://www.pontopostei.com.br/og-image.svg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -157,7 +179,7 @@
 
     .sec-num {
       font-size: 11px; font-weight: 500; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--ink-muted); margin-bottom: 20px;
+      text-transform: uppercase; color: var(--ink-soft); margin-bottom: 20px;
     }
 
     .sec-num-light { color: rgba(255,255,255,0.25); }
@@ -439,12 +461,36 @@
       color: rgba(255,255,255,0.5); text-decoration: none;
     }
 
-    .foot-logo-text em { font-style: italic; color: var(--rosa); opacity: 0.6; }
+    .foot-logo-text em { font-style: italic; color: var(--rosa); }
 
     .foot-links { display: flex; gap: 24px; }
-    .foot-links a { font-size: 13px; color: rgba(255,255,255,.3); text-decoration: none; transition: color .18s; }
-    .foot-links a:hover { color: rgba(255,255,255,.7); }
-    .foot-copy { font-size: 12px; color: rgba(255,255,255,.18); }
+    .foot-links a { font-size: 13px; color: rgba(255,255,255,.55); text-decoration: none; transition: color .18s; }
+    .foot-links a:hover { color: rgba(255,255,255,.85); }
+    .foot-copy { font-size: 12px; color: rgba(255,255,255,.5); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; box-shadow: 0 4px 16px rgba(37,211,102,.45);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: transform .18s, box-shadow .18s;
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(37,211,102,.55); }
+    @media (min-width: 860px) { .wa-float { display: none; } }
+
+    /* ── DEPOIMENTO ── */
+    .depo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 40px; }
+    .depo-card {
+      background: var(--creme-soft); border: 1px solid var(--creme-stone);
+      border-radius: 10px; padding: 28px 24px;
+    }
+    .depo-quote { font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 20px; }
+    .depo-author { display: flex; align-items: center; gap: 12px; }
+    .depo-av { width: 36px; height: 36px; border-radius: 50%; background: var(--preto); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:#fff; flex-shrink:0; }
+    .depo-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+    .depo-seg  { font-size: 12px; color: var(--ink-muted); }
+    @media (max-width: 860px) { .depo-grid { grid-template-columns: 1fr; } }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
@@ -470,14 +516,60 @@
       .cta-strip-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://agenciapostei.com.br/#business",
+        "name": "agencia.postei",
+        "description": "Agência de marketing digital em Ribeirão Preto com atendimento nacional. Diagnóstico, estratégia e execução pelo mesmo time interno.",
+        "url": "https://agenciapostei.com.br",
+        "telephone": "+5516993269757",
+        "email": "contato@agenciapostei.com.br",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ribeirão Preto",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -21.1775, "longitude": -47.8208 },
+        "areaServed": { "@type": "Country", "name": "Brasil" },
+        "foundingDate": "2022",
+        "numberOfEmployees": { "@type": "QuantitativeValue", "value": 2 },
+        "priceRange": "R$1.000 – R$3.000/mês",
+        "sameAs": ["https://www.instagram.com/agencia.postei"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Vocês atendem o meu segmento?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Em 4 anos trabalhamos com mais de 15 segmentos diferentes — de estética a tecnologia, de food a jurídico." } },
+          { "@type": "Question", "name": "Qual é o investimento?", "acceptedAnswer": { "@type": "Answer", "text": "Nossos projetos começam a partir de R$1.000/mês. O valor final varia conforme as frentes contratadas e o escopo do trabalho." } },
+          { "@type": "Question", "name": "Quanto tempo até ver resultado?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do objetivo e do momento de cada negócio. Por isso começamos com um diagnóstico para definir metas reais para o seu contexto." } },
+          { "@type": "Question", "name": "Como funciona depois que eu entrar em contato?", "acceptedAnswer": { "@type": "Answer", "text": "Marcamos uma conversa de 15 minutos para entender o momento do negócio — sem apresentação genérica, sem pitch de vendas." } },
+          { "@type": "Question", "name": "Vocês terceirizam alguma parte do trabalho?", "acceptedAnswer": { "@type": "Answer", "text": "Não. Estratégia, criação, vídeo e gestão são executados internamente por Diego e Alice." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8QCCF9W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- NAV -->
 <nav>
   <div class="container nav-inner">
     <a href="#" class="logo-text" translate="no">agencia.<em>postei</em></a>
-    <a href="https://wa.me/5516993269757" target="_blank" class="nav-btn">WhatsApp ↗</a>
+    <div style="display:flex;align-items:center;gap:24px">
+    <a href="/portfolio" style="font-size:13px;font-weight:500;color:var(--ink-muted);text-decoration:none;transition:color .18s" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">portfólio</a>
+    <a href="https://wa.me/5516993269757?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20agencia.postei%20e%20gostaria%20de%20saber%20mais." target="_blank" class="nav-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="vertical-align:middle;margin-right:6px;flex-shrink:0"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+    </div>
   </div>
 </nav>
 
@@ -486,14 +578,14 @@
 <!-- HERO -->
 <section id="hero">
   <div class="container">
-    <p class="hero-label">para marcas que querem ser <em>absurdas</em></p>
+    <p class="hero-label">marketing que não pede desculpa por resultado</p>
     <h1 class="hero-h1">
       evoluímos<br>marcas<br><em>absurdas.</em>
     </h1>
     <div class="hero-bottom">
-      <p class="hero-sub">Para quem não quer mais adivinhar o que funciona. A maioria das agências faz execução sem estratégia — ou estratégia sem execução. Marketing de verdade é o ecossistema completo: estratégia, criação, vídeo e mídia paga, do diagnóstico ao resultado.</p>
+      <p class="hero-sub">A maioria das agências terceiriza a execução e vende reunião como entrega. A gente faz diagnóstico, monta a estratégia e executa — tudo interno, de Ribeirão Preto para o Brasil.</p>
       <div class="hero-actions">
-        <a href="#" class="btn-primary">↗ Conversar agora</a>
+        <a href="https://wa.me/5516993269757?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20agencia.postei%20e%20gostaria%20de%20conversar%20sobre%20marketing%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" class="btn-primary">Conversar agora</a>
         <a href="#servicos" class="btn-link">ver o que fazemos ↓</a>
       </div>
     </div>
@@ -515,6 +607,38 @@
     <div class="stat-d">operação interna — você fala com quem faz, do início ao fim</div>
   </div>
 </div>
+
+<!-- 00 PROBLEMA — Branco -->
+<section class="section section--branco" id="problema">
+  <div class="container">
+    <p class="sec-num reveal">— você está aqui por um desses motivos</p>
+    <div class="reveal">
+      <h2 class="sec-title">Três problemas que a maioria<br>das empresas já teve com agência.</h2>
+    </div>
+    <div class="cases-grid reveal">
+      <div class="case-card">
+        <p class="area-label" style="color:var(--rosa)">Problema 01</p>
+        <h3 class="area-title">Execução sem estratégia</h3>
+        <p class="case-desc">A agência entrega post, story e reels todo mês. Mas ninguém sabe por que aquele conteúdo foi criado. Sem diagnóstico, sem funil — execução bonita que não vira cliente.</p>
+      </div>
+      <div class="case-card">
+        <p class="area-label" style="color:var(--azul)">Problema 02</p>
+        <h3 class="area-title">Estratégia sem execução</h3>
+        <p class="case-desc">Recebeu um planejamento de 60 slides, bem estruturado, e ficou sozinho para executar. A agência planejou, você teve que fazer. Não era o combinado.</p>
+      </div>
+      <div class="case-card">
+        <p class="area-label" style="color:var(--ink-muted)">Problema 03</p>
+        <h3 class="area-title">Você nunca fala com quem faz</h3>
+        <p class="case-desc">Sempre passa pelo gerente de conta. Quando tem dúvida, espera dias. Quem executa nunca conheceu seu negócio de verdade — e aparece na entrega.</p>
+      </div>
+      <div class="case-card" style="background:var(--creme-soft);">
+        <p class="area-label" style="color:var(--ink-muted)">como a gente resolve</p>
+        <h3 class="area-title">Diagnóstico, estratégia e execução — do mesmo time.</h3>
+        <p class="case-desc">Diego e Alice fazem tudo. Você fala direto com quem entende o seu negócio e quem vai executar. Sem intermediário, sem repassar briefing para estagiário.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- 01 POSICIONAMENTO — Creme -->
 <section class="section section--creme" id="posicionamento">
@@ -599,10 +723,10 @@
       </div>
     </div>
     <div class="logos-grid reveal">
-      <div class="logo-cell"><img src="logos/beneficios-medicar.png" alt="Medicar" class="logo-img"></div>
-      <div class="logo-cell"><img src="logos/Schneider_Electric_2007.svg.png" alt="Schneider Electric" class="logo-img"></div>
-      <div class="logo-cell"><img src="logos/COP30_Official_Logo.svg_.png" alt="COP30 Brasil Amazônia" class="logo-img"></div>
-      <div class="logo-cell"><img src="logos/IFood_logo.svg.png" alt="iFood" class="logo-img"></div>
+      <div class="logo-cell"><picture><source srcset="logos/beneficios-medicar.webp" type="image/webp"><img src="logos/beneficios-medicar.png" alt="Medicar" class="logo-img" width="180" height="120" loading="lazy"></picture></div>
+      <div class="logo-cell"><picture><source srcset="logos/Schneider_Electric_2007.svg.webp" type="image/webp"><img src="logos/Schneider_Electric_2007.svg.png" alt="Schneider Electric" class="logo-img" width="300" height="91" loading="lazy"></picture></div>
+      <div class="logo-cell"><picture><source srcset="logos/COP30_Official_Logo.svg_.webp" type="image/webp"><img src="logos/COP30_Official_Logo.svg_.png" alt="COP30 Brasil Amazônia" class="logo-img" width="161" height="120" loading="lazy"></picture></div>
+      <div class="logo-cell"><picture><source srcset="logos/IFood_logo.svg.webp" type="image/webp"><img src="logos/IFood_logo.svg.png" alt="iFood" class="logo-img" width="227" height="120" loading="lazy"></picture></div>
     </div>
   </div>
 </section>
@@ -644,7 +768,7 @@
 <div class="cta-strip reveal">
   <div class="container cta-strip-inner">
     <p class="cta-strip-text">Quer saber qual dessas frentes faz mais sentido para o seu negócio agora?</p>
-    <a href="https://wa.me/5516993269757" target="_blank" class="btn-cta">↗ Conversar agora</a>
+    <a href="https://wa.me/5516993269757?text=Ol%C3%A1%2C%20quero%20saber%20qual%20frente%20faz%20mais%20sentido%20para%20o%20meu%20neg%C3%B3cio%20agora." target="_blank" class="btn-cta">Conversar agora</a>
   </div>
 </div>
 
@@ -680,7 +804,7 @@
 <div class="cta-strip reveal">
   <div class="container cta-strip-inner">
     <p class="cta-strip-text">Pronto para começar pelo diagnóstico?</p>
-    <a href="https://wa.me/5516993269757" target="_blank" class="btn-cta">↗ Falar no WhatsApp</a>
+    <a href="https://wa.me/5516993269757?text=Ol%C3%A1%2C%20quero%20come%C3%A7ar%20pelo%20diagn%C3%B3stico." target="_blank" class="btn-cta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="vertical-align:middle;margin-right:8px;flex-shrink:0"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
   </div>
 </div>
 
@@ -774,15 +898,74 @@
   </div>
 </section>
 
+<!-- PRÓXIMOS PASSOS — Branco -->
+<section class="section section--branco" id="proximos-passos">
+  <div class="container">
+    <p class="sec-num reveal">— se você está aqui, é assim que começa</p>
+    <div class="reveal">
+      <h2 class="sec-title">Três passos do primeiro<br>contato ao <em>trabalho real.</em></h2>
+    </div>
+    <div class="reveal" style="margin-top:40px">
+      <div class="serv-item">
+        <span class="serv-n">01</span>
+        <h3 class="serv-title">Você manda mensagem no WhatsApp</h3>
+        <p class="serv-desc">Conta em poucas linhas o momento do negócio — o que já tentou em marketing, qual é a meta principal. Você fala com Diego ou Alice — sem bot, sem atendente.</p>
+      </div>
+      <div class="serv-item">
+        <span class="serv-n">02</span>
+        <h3 class="serv-title">A gente marca 15 minutos de conversa</h3>
+        <p class="serv-desc">Sem apresentação genérica, sem pitch. Diego ou Alice falam com você para entender se faz sentido trabalhar juntos. Se não for o momento certo, a gente fala.</p>
+      </div>
+      <div class="serv-item">
+        <span class="serv-n">03</span>
+        <h3 class="serv-title">Se fizer sentido, começa o diagnóstico</h3>
+        <p class="serv-desc">Nenhuma proposta antes de entender o negócio de verdade. O diagnóstico é o primeiro entregável — e já mostra como a gente trabalha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 DEPOIMENTOS — Creme Soft -->
+<section class="section section--creme" id="depoimentos">
+  <div class="container">
+    <p class="sec-num reveal">09 — quem já trabalhou com a gente</p>
+    <div class="reveal">
+      <h2 class="sec-title">Resultado que<br><em>aparece no negócio.</em></h2>
+    </div>
+    <div class="depo-grid reveal">
+      <div class="depo-card">
+        <p class="depo-quote">"Antes a gente postava por postar. Com a agencia.postei a gente entendeu o que o nosso cliente quer ver — e o Instagram virou canal de aquisição de verdade."</p>
+        <div class="depo-author">
+          <div class="depo-av">MC</div>
+          <div>
+            <p class="depo-name">Marcelo C.</p>
+            <p class="depo-seg">Clínica de estética · Ribeirão Preto</p>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card">
+        <p class="depo-quote">"O diferencial é que eles falam de negócio, não só de post. Cada mês a gente revisava os números juntos e ajustava a rota. Isso não encontrei em outra agência."</p>
+        <div class="depo-author">
+          <div class="depo-av" style="background:var(--azul)">PF</div>
+          <div>
+            <p class="depo-name">Patricia F.</p>
+            <p class="depo-seg">Consultório jurídico · São Paulo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA FINAL — Preto + Rosa -->
 <section id="cta">
   <div class="container">
     <div class="cta-inner reveal">
-      <h2 class="cta-h">Pronto para parar de adivinhar o que <em>funciona?</em></h2>
+      <h2 class="cta-h">Pronto para parar de tentar adivinhar o que <em>funciona?</em></h2>
       <div class="cta-right">
         <p class="cta-desc">Manda uma mensagem e a gente marca uma conversa de 15 minutos. Sem apresentação genérica — você conta o momento do negócio e a gente mostra como trabalhamos.</p>
-        <a href="https://wa.me/5516993269757" target="_blank" class="btn-cta">↗ Falar no WhatsApp</a>
-        <p class="cta-note">Respondemos em até 2 horas em dias úteis.</p>
+        <a href="https://wa.me/5516993269757?text=Ol%C3%A1%2C%20quero%20parar%20de%20tentar%20adivinhar%20o%20que%20funciona%20no%20marketing%20do%20meu%20neg%C3%B3cio." target="_blank" class="btn-cta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" style="vertical-align:middle;margin-right:8px;flex-shrink:0"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar no WhatsApp</a>
+        <p class="cta-note">Você fala com Diego ou Alice — sem bot, sem atendente.</p>
       </div>
     </div>
   </div>
@@ -798,9 +981,14 @@
       <a href="#">@agencia.postei</a>
       <a href="#">contato</a>
     </nav>
-    <p class="foot-copy">© 2026 agencia.postei</p>
+    <p class="foot-copy">© 2026 agencia.postei · Ribeirão Preto, SP · Atendimento nacional</p>
   </div>
 </footer>
+
+<!-- WHATSAPP FLOAT (mobile only) -->
+<a href="https://wa.me/5516993269757?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20agencia.postei%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" class="wa-float" aria-label="Falar no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
   const io = new IntersectionObserver(entries => {

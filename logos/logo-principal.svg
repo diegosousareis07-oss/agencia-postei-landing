@@ -4,7 +4,7 @@
       @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,500&amp;family=Instrument+Sans:wght@500&amp;display=swap');
       .label    { font-family: 'Instrument Sans', system-ui, sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; fill: #9B9B9B; }
       .wordmark { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 52px; letter-spacing: -0.02em; fill: #1A1A1A; }
-      .dot      { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-style: italic; font-size: 52px; fill: #D4644A; }
+      .dot      { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-style: italic; font-size: 52px; fill: #FF0080; }
     </style>
   </defs>
   <text x="16" y="38" class="label">agencia</text>

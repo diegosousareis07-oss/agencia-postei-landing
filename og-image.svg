@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#ECE6DC"/>
+
+  <!-- Linha superior rosa -->
+  <rect x="0" y="0" width="1200" height="6" fill="#FF0080"/>
+
+  <!-- Bloco de texto centralizado -->
+  <text
+    x="80" y="220"
+    font-family="Georgia, serif"
+    font-size="88"
+    font-weight="500"
+    fill="#1A1A1A"
+    letter-spacing="-3">agencia</text>
+
+  <text
+    x="80" y="320"
+    font-family="Georgia, serif"
+    font-size="88"
+    font-style="italic"
+    font-weight="500"
+    fill="#FF0080"
+    letter-spacing="-3">.postei</text>
+
+  <!-- Separador -->
+  <rect x="80" y="358" width="60" height="3" fill="#1A1A1A" opacity="0.25"/>
+
+  <!-- Tagline -->
+  <text
+    x="80" y="410"
+    font-family="Arial, sans-serif"
+    font-size="28"
+    font-weight="400"
+    fill="#4A4A4A"
+    letter-spacing="0">Agência de marketing em Ribeirão Preto</text>
+
+  <text
+    x="80" y="450"
+    font-family="Arial, sans-serif"
+    font-size="26"
+    font-weight="400"
+    fill="#8A8070">Estratégia, conteúdo e tráfego pago — sem terceirização.</text>
+
+  <!-- URL canto inferior direito -->
+  <text
+    x="1120" y="590"
+    font-family="Arial, sans-serif"
+    font-size="20"
+    font-weight="400"
+    fill="#8A8070"
+    text-anchor="end">pontopostei.com.br</text>
+
+  <!-- Ponto decorativo rosa -->
+  <circle cx="1120" cy="100" r="48" fill="#FF0080" opacity="0.12"/>
+  <circle cx="1120" cy="100" r="28" fill="#FF0080" opacity="0.18"/>
+</svg>
