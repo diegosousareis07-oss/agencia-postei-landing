@@ -49,7 +49,16 @@ body {
   color: var(--ink);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(99,102,241,0.18) 0%, transparent 70%);
+}
+
+body > * { position: relative; z-index: 1; }
 
 /* ── NAVBAR ── */
 nav {
