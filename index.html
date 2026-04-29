@@ -1,5 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M8QCCF9W');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>agencia.postei — Agência de Marketing em Ribeirão Preto</title>
@@ -344,10 +351,10 @@ nav {
 .frente-card p { font-size: 14px; color: var(--ink3); font-weight: 400; line-height: 1.7; }
 
 /* ── BRANDS ── */
-.brands-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+.brands-grid       { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.brands-grid-sm    { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin-top: 24px; }
 .brand-item {
-  flex: 1; min-width: 160px;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  background: #ECEEF4; border: 1px solid var(--border); border-radius: 14px;
   padding: 40px 32px; display: flex; align-items: center; justify-content: center;
   transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
@@ -357,9 +364,9 @@ nav {
   transition: color 0.25s;
 }
 .brand-item img {
-  filter: grayscale(1) opacity(0.5);
+  filter: grayscale(1) opacity(0.6);
   transition: filter 0.3s ease;
-  max-height: 44px; width: auto;
+  max-height: 64px; max-width: 100%; width: auto; height: auto;
 }
 .brand-item:hover img { filter: grayscale(0) opacity(1); }
 
@@ -372,6 +379,18 @@ nav {
 .brand-cop30:hover .brand-placeholder { color: #006633; }
 .brand-ifood:hover { border-color: #EA1D2C; box-shadow: 0 8px 24px rgba(234,29,44,0.12); }
 .brand-ifood:hover .brand-placeholder { color: #EA1D2C; }
+
+/* ── BRANDS — clientes de marketing ── */
+.brands-divider {
+  display: flex; align-items: center; gap: 14px; margin: 8px 0 0;
+}
+.brands-divider::before, .brands-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.brands-divider span {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink4); white-space: nowrap;
+}
 
 /* ── RESULTS ── */
 .results-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
@@ -519,8 +538,9 @@ footer {
   .hero { grid-template-columns: 1fr; padding: 100px 24px 64px; gap: 48px; text-align: center; }
   .hero-tag, .hero-desc { margin-inline: auto; }
   .ctas { justify-content: center; }
-  .hero-visual { order: -1; }
 
+  .brands-grid    { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .brands-grid-sm { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .stats-strip { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 24px; }
 
@@ -630,6 +650,10 @@ footer {
 
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8QCCF9W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ══════════ NAVBAR ══════════ -->
 <nav>
@@ -839,12 +863,30 @@ footer {
     <p>Trabalhos de produção e edição audiovisual entregues para estas marcas. Prova de capacidade técnica em projetos de alta exigência — aplicada hoje na produção completa dos nossos clientes de marketing.</p>
   </div>
   <div class="brands-grid reveal">
-    <div class="brand-item brand-medicar"><picture><source srcset="logos/beneficios-medicar.webp" type="image/webp"><img src="logos/beneficios-medicar.png" alt="Medicar" width="180" height="120" loading="lazy"></picture></div>
-    <div class="brand-item brand-schneider"><picture><source srcset="logos/Schneider_Electric_2007.svg.webp" type="image/webp"><img src="logos/Schneider_Electric_2007.svg.png" alt="Schneider Electric" width="300" height="91" loading="lazy"></picture></div>
-    <div class="brand-item brand-cop30"><picture><source srcset="logos/COP30_Official_Logo.svg_.webp" type="image/webp"><img src="logos/COP30_Official_Logo.svg_.png" alt="COP30 Brasil" width="161" height="120" loading="lazy"></picture></div>
-    <div class="brand-item brand-ifood"><picture><source srcset="logos/IFood_logo.svg.webp" type="image/webp"><img src="logos/IFood_logo.svg.png" alt="iFood" width="227" height="120" loading="lazy"></picture></div>
+    <div class="brand-item brand-medicar"><img src="logos/beneficios-medicar.png" alt="Medicar" loading="lazy"></div>
+    <div class="brand-item brand-schneider"><img src="logos/Schneider_Electric_2007.svg.png" alt="Schneider Electric" loading="lazy"></div>
+    <div class="brand-item brand-cop30"><img src="logos/COP30_Official_Logo.svg_.png" alt="COP30 Brasil" loading="lazy"></div>
+    <div class="brand-item brand-ifood"><img src="logos/IFood_logo.svg.png" alt="iFood" loading="lazy"></div>
+  </div>
+  <div class="brands-grid-sm reveal">
+    <div class="brand-item"><img src="logos/clients/1.png" alt="Derma" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/2.png" alt="Body For Sure" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/3.png" alt="Cosmobeauty" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/4.png" alt="ADCOS" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/5.png" alt="Omega Laser" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/6.png" alt="Cliente" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/7.png" alt="Cliente" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/9.png" alt="Eliane Belini" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/10.png" alt="SteticMOB" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/11.png" alt="Cefal" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/12.png" alt="Gabriel Marques" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/13.png" alt="Thatiane Favaretto" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/14.png" alt="Vitor Hugo &amp; Gabriel" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/15.png" alt="Jovié" loading="lazy"></div>
+    <div class="brand-item"><img src="logos/clients/16.png" alt="Dalgiza Silva" loading="lazy"></div>
   </div>
 </section>
+
 
 <!-- ══════════ RESULTADOS ══════════ -->
 <section class="section">
