@@ -27,17 +27,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:        #F0F4F8;
-  --surface:   #ffffff;
-  --surface2:  #F8FAFC;
-  --border:    #E2E8F0;
+  --bg:        #0D1629;
+  --surface:   #152036;
+  --surface2:  #1A2840;
+  --border:    rgba(255,255,255,0.08);
   --accent:    #6366F1;
-  --accent-bg: #EEF2FF;
+  --accent-bg: rgba(99,102,241,0.15);
   --accent-dk: #4F46E5;
-  --ink:       #0F172A;
-  --ink2:      #334155;
-  --ink3:      #64748B;
-  --ink4:      #94A3B8;
+  --ink:       #F1F5F9;
+  --ink2:      #CBD5E1;
+  --ink3:      #94A3B8;
+  --ink4:      #64748B;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,7 +56,7 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px; height: 64px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(13,22,41,0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
@@ -176,7 +176,7 @@ nav {
 .tipo-card p { font-size: 13px; color: var(--ink3); line-height: 1.5; }
 
 /* ── COMO FUNCIONA ── */
-.como-wrap { background: var(--surface); border-radius: 16px; padding: 48px; margin-top: 40px; }
+.como-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 48px; margin-top: 40px; }
 .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
 .step { display: flex; flex-direction: column; gap: 12px; position: relative; }
 .step:not(:last-child)::after {
@@ -254,15 +254,16 @@ nav {
 
 /* ── CTA FINAL ── */
 .cta-section {
-  background: var(--ink); border-radius: 20px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px;
   padding: 64px 48px; text-align: center;
   max-width: 1100px; margin: 0 auto 80px;
 }
 .cta-section h2 {
   font-size: clamp(26px, 3.5vw, 38px); font-weight: 800;
-  letter-spacing: -0.025em; color: #fff; margin-bottom: 14px;
+  letter-spacing: -0.025em; color: var(--ink); margin-bottom: 14px;
 }
-.cta-section p { font-size: 17px; color: #94A3B8; margin-bottom: 36px; }
+.cta-section p { font-size: 17px; color: var(--ink3); margin-bottom: 36px; }
 .btn-primary-inv {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 16px 32px; border-radius: 10px;
@@ -277,6 +278,7 @@ footer {
   border-top: 1px solid var(--border);
   padding: 28px 48px; text-align: center;
   font-size: 13px; color: var(--ink4);
+  background: var(--bg);
 }
 footer a { color: var(--ink3); text-decoration: none; }
 footer a:hover { color: var(--accent); }
