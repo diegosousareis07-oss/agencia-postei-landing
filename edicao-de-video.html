@@ -375,13 +375,16 @@ footer a:hover { color: var(--accent); }
 }
 #modal-container {
   position: relative; z-index: 1;
-  width: 90vw; max-width: 900px;
+  width: min(90vw, 400px);
   border-radius: 12px; overflow: hidden;
   background: #000;
 }
-#modal-player { position: relative; padding-top: 56.25%; }
+#modal-player { position: relative; padding-top: 177.78%; }
 #modal-player iframe {
   position: absolute; inset: 0; width: 100%; height: 100%;
+}
+@media (min-width: 769px) {
+  #modal-container { width: min(90vw, 420px); }
 }
 #modal-close {
   position: absolute; top: -40px; right: 0;
