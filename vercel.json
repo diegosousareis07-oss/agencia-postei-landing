@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/portfolio", "destination": "/portfolio.html" }
+    { "source": "/portfolio", "destination": "/portfolio.html" },
+    { "source": "/edicao-de-video", "destination": "/edicao-de-video.html" }
   ],
   "headers": [
     {
