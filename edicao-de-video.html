@@ -58,7 +58,7 @@ body::before {
   background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(99,102,241,0.18) 0%, transparent 70%);
 }
 
-body > * { position: relative; z-index: 1; }
+nav, main, section, div, footer { position: relative; z-index: 1; }
 
 /* ── NAVBAR ── */
 nav {
@@ -336,18 +336,33 @@ footer a:hover { color: var(--accent); }
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
-  .hero { padding: 110px 20px 56px; }
-  .section { padding: 56px 20px; }
+  .nav-cta { font-size: 13px; padding: 8px 14px; }
+  .hero { padding: 100px 20px 48px; }
+  .hero h1 { font-size: 30px; }
+  .hero p { font-size: 16px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-ghost { justify-content: center; }
+  .hero-proof { gap: 14px; }
+  .section { padding: 48px 20px; }
   .steps { grid-template-columns: 1fr; }
   .step::after { display: none; }
-  .como-wrap { padding: 32px 20px; }
-  .cta-section { padding: 48px 24px; margin: 0 20px 64px; }
+  .como-wrap { padding: 28px 20px; }
+  .porq-grid { grid-template-columns: 1fr 1fr; }
+  .cta-wrap { padding: 0 20px; }
+  .cta-section { padding: 40px 24px; margin: 0 0 64px; }
   footer { padding: 24px 20px; }
   .wa-float { bottom: 16px; right: 16px; }
 }
 @media (max-width: 480px) {
+  .nav-cta span { display: none; }
   .tipos-grid { grid-template-columns: 1fr 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .porq-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 360px) {
+  .tipos-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .hero-ctas { gap: 10px; }
 }
 </style>
 </head>
@@ -650,7 +665,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- CTA FINAL -->
-<div style="padding: 0 48px;">
+<div class="cta-wrap" style="padding: 0 48px;">
   <div class="cta-section">
     <h2>Você grava. A gente faz o resto.</h2>
     <p>Envie uma mensagem e receba um orçamento.</p>
