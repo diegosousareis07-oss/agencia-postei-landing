@@ -486,6 +486,75 @@ a.tipo-card:hover {
   .portfolio-grid { grid-template-columns: 1fr; }
   .hero-ctas { gap: 10px; }
 }
+
+/* ── DEPOIMENTOS ── */
+.dep-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+.dep-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dep-card.destaque {
+  border-color: rgba(99,102,241,0.3);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(99,102,241,0.07) 100%);
+  grid-column: span 2;
+}
+.dep-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.dep-bubble {
+  background: #1F2C3A;
+  color: var(--ink2);
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 10px 14px;
+  border-radius: 0 12px 12px 12px;
+  max-width: 100%;
+  width: fit-content;
+}
+.dep-card.destaque .dep-bubble {
+  font-size: 15px;
+}
+.dep-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.dep-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--accent-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.dep-meta { display: flex; flex-direction: column; gap: 2px; }
+.dep-meta strong { font-size: 13px; font-weight: 600; color: var(--ink); }
+.dep-meta span { font-size: 11px; color: var(--ink4); }
+.dep-wa {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 4px;
+  font-size: 10px; color: var(--ink4); letter-spacing: 0.05em;
+}
+.dep-wa svg { opacity: 0.5; }
+@media (max-width: 768px) {
+  .dep-grid { grid-template-columns: 1fr; }
+  .dep-card.destaque { grid-column: span 1; }
+}
 </style>
 
 <script type="application/ld+json">
@@ -957,6 +1026,111 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="video-info">
         <div class="video-client">Dra. Thatiane Favaretto</div>
         <div class="video-tags"><span class="vtag">Saúde</span><span class="vtag">Edição</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div class="section" style="padding-top: 0">
+  <span class="section-label">O que dizem os clientes</span>
+  <h2 class="section-title">Resultado que aparece na conversa</h2>
+  <p class="section-sub">Mensagens reais. Do WhatsApp mesmo — sem editar uma vírgula.</p>
+
+  <div class="dep-grid">
+
+    <!-- destaque -->
+    <div class="dep-card destaque">
+      <div class="dep-bubbles">
+        <div class="dep-bubble">uma das edições que eu não mexeria em nada. Eu achei perfeita a edição do evento.</div>
+        <div class="dep-bubble">Inclusive eu achei melhor do que a edição oficial que foi feita do evento.</div>
+      </div>
+      <div class="dep-footer">
+        <div class="dep-avatar">🎬</div>
+        <div class="dep-meta">
+          <strong>Cliente</strong>
+          <span>Vídeo de evento</span>
+        </div>
+        <div class="dep-wa">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-bubbles">
+        <div class="dep-bubble">Tu fez um milagre</div>
+        <div class="dep-bubble">Sério 🥹🥹</div>
+      </div>
+      <div class="dep-footer">
+        <div class="dep-avatar">✨</div>
+        <div class="dep-meta">
+          <strong>Cliente</strong>
+          <span>Criadora de conteúdo</span>
+        </div>
+        <div class="dep-wa">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-bubbles">
+        <div class="dep-bubble">Essa edição ficou incrível!</div>
+        <div class="dep-bubble">Sem alterações 😊</div>
+        <div class="dep-bubble">Ficou perfeito ❤️</div>
+      </div>
+      <div class="dep-footer">
+        <div class="dep-avatar">🎥</div>
+        <div class="dep-meta">
+          <strong>Cliente</strong>
+          <span>Reels / Instagram</span>
+        </div>
+        <div class="dep-wa">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-bubbles">
+        <div class="dep-bubble">Vi aqui! Tudo certo dentro da nossa linguagem, gostei das cores também. Ficou equalizado.</div>
+        <div class="dep-bubble">O resto tá ótimo! Toda semana vamos fazer um pouco.</div>
+      </div>
+      <div class="dep-footer">
+        <div class="dep-avatar">🏢</div>
+        <div class="dep-meta">
+          <strong>Cliente</strong>
+          <span>Vídeo institucional</span>
+        </div>
+        <div class="dep-wa">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <div class="dep-bubbles">
+        <div class="dep-bubble">Deu certo</div>
+        <div class="dep-bubble">Amaram</div>
+        <div class="dep-bubble">A dona disse que quase chorou 😂</div>
+        <div class="dep-bubble">Tem mais trabalhinho hahaha</div>
+      </div>
+      <div class="dep-footer">
+        <div class="dep-avatar">🔁</div>
+        <div class="dep-meta">
+          <strong>Cliente recorrente</strong>
+          <span>Vídeo de evento</span>
+        </div>
+        <div class="dep-wa">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp
+        </div>
       </div>
     </div>
 
