@@ -495,62 +495,79 @@ a.tipo-card:hover {
   margin-top: 40px;
 }
 .dep-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 14px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
 }
 .dep-card.destaque {
-  border-color: rgba(99,102,241,0.3);
-  background: linear-gradient(135deg, var(--surface) 0%, rgba(99,102,241,0.07) 100%);
   grid-column: span 2;
 }
-.dep-bubbles {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-}
-.dep-bubble {
-  background: #1F2C3A;
-  color: var(--ink2);
-  font-size: 14px;
-  line-height: 1.55;
+/* cabeçalho estilo WhatsApp */
+.dep-header {
+  background: #075E54;
   padding: 10px 14px;
-  border-radius: 0 12px 12px 12px;
-  max-width: 100%;
-  width: fit-content;
-}
-.dep-card.destaque .dep-bubble {
-  font-size: 15px;
-}
-.dep-footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
 }
 .dep-avatar {
-  width: 32px; height: 32px;
+  width: 34px; height: 34px;
   border-radius: 50%;
-  background: var(--accent-bg);
+  background: #128C7E;
   display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
+  font-size: 16px;
   flex-shrink: 0;
 }
-.dep-meta { display: flex; flex-direction: column; gap: 2px; }
-.dep-meta strong { font-size: 13px; font-weight: 600; color: var(--ink); }
-.dep-meta span { font-size: 11px; color: var(--ink4); }
-.dep-wa {
-  margin-left: auto;
-  display: flex; align-items: center; gap: 4px;
-  font-size: 10px; color: var(--ink4); letter-spacing: 0.05em;
+.dep-header-info { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+.dep-header-info strong { font-size: 13px; font-weight: 600; color: #fff; }
+.dep-header-info span { font-size: 11px; color: rgba(255,255,255,0.65); }
+.dep-header-wa { margin-left: auto; opacity: 0.8; }
+/* área do chat */
+.dep-chat {
+  background: #E5DDD5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 0h80v80H0z' fill='%23E5DDD5'/%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='40' cy='10' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='70' cy='10' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='25' cy='25' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='55' cy='25' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='10' cy='40' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='70' cy='40' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='25' cy='55' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='55' cy='55' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='10' cy='70' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='40' cy='70' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3Ccircle cx='70' cy='70' r='1.5' fill='%23D4C9BC' opacity='.4'/%3E%3C/svg%3E");
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
 }
-.dep-wa svg { opacity: 0.5; }
+/* bolha recebida (cliente) — branca, cauda esquerda */
+.dep-bubble {
+  background: #fff;
+  color: #303030;
+  font-size: 13.5px;
+  line-height: 1.5;
+  padding: 7px 12px 7px 10px;
+  border-radius: 0 8px 8px 8px;
+  max-width: 92%;
+  width: fit-content;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.13);
+}
+.dep-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -6px;
+  border-width: 0 6px 6px 0;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+.dep-card.destaque .dep-bubble {
+  font-size: 14.5px;
+}
+.dep-footer {
+  background: #F0F0F0;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dep-meta { display: flex; flex-direction: column; gap: 1px; }
+.dep-meta strong { font-size: 12px; font-weight: 600; color: #303030; }
+.dep-meta span { font-size: 10px; color: #667781; }
 @media (max-width: 768px) {
   .dep-grid { grid-template-columns: 1fr; }
   .dep-card.destaque { grid-column: span 1; }
@@ -1042,94 +1059,119 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- destaque -->
     <div class="dep-card destaque">
-      <div class="dep-bubbles">
+      <div class="dep-header">
+        <div class="dep-avatar">🎬</div>
+        <div class="dep-header-info">
+          <strong>Cliente</strong>
+          <span>online</span>
+        </div>
+        <div class="dep-header-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        </div>
+      </div>
+      <div class="dep-chat">
         <div class="dep-bubble">uma das edições que eu não mexeria em nada. Eu achei perfeita a edição do evento.</div>
         <div class="dep-bubble">Inclusive eu achei melhor do que a edição oficial que foi feita do evento.</div>
       </div>
       <div class="dep-footer">
-        <div class="dep-avatar">🎬</div>
         <div class="dep-meta">
           <strong>Cliente</strong>
           <span>Vídeo de evento</span>
         </div>
-        <div class="dep-wa">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-          WhatsApp
-        </div>
       </div>
     </div>
 
     <div class="dep-card">
-      <div class="dep-bubbles">
+      <div class="dep-header">
+        <div class="dep-avatar">✨</div>
+        <div class="dep-header-info">
+          <strong>Cliente</strong>
+          <span>online</span>
+        </div>
+        <div class="dep-header-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        </div>
+      </div>
+      <div class="dep-chat">
         <div class="dep-bubble">Tu fez um milagre</div>
         <div class="dep-bubble">Sério 🥹🥹</div>
       </div>
       <div class="dep-footer">
-        <div class="dep-avatar">✨</div>
         <div class="dep-meta">
           <strong>Cliente</strong>
           <span>Criadora de conteúdo</span>
-        </div>
-        <div class="dep-wa">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-          WhatsApp
         </div>
       </div>
     </div>
 
     <div class="dep-card">
-      <div class="dep-bubbles">
+      <div class="dep-header">
+        <div class="dep-avatar">🎥</div>
+        <div class="dep-header-info">
+          <strong>Cliente</strong>
+          <span>online</span>
+        </div>
+        <div class="dep-header-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        </div>
+      </div>
+      <div class="dep-chat">
         <div class="dep-bubble">Essa edição ficou incrível!</div>
         <div class="dep-bubble">Sem alterações 😊</div>
         <div class="dep-bubble">Ficou perfeito ❤️</div>
       </div>
       <div class="dep-footer">
-        <div class="dep-avatar">🎥</div>
         <div class="dep-meta">
           <strong>Cliente</strong>
           <span>Reels / Instagram</span>
         </div>
-        <div class="dep-wa">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-          WhatsApp
-        </div>
       </div>
     </div>
 
     <div class="dep-card">
-      <div class="dep-bubbles">
+      <div class="dep-header">
+        <div class="dep-avatar">🏢</div>
+        <div class="dep-header-info">
+          <strong>Cliente</strong>
+          <span>online</span>
+        </div>
+        <div class="dep-header-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        </div>
+      </div>
+      <div class="dep-chat">
         <div class="dep-bubble">Vi aqui! Tudo certo dentro da nossa linguagem, gostei das cores também. Ficou equalizado.</div>
         <div class="dep-bubble">O resto tá ótimo! Toda semana vamos fazer um pouco.</div>
       </div>
       <div class="dep-footer">
-        <div class="dep-avatar">🏢</div>
         <div class="dep-meta">
           <strong>Cliente</strong>
           <span>Vídeo institucional</span>
-        </div>
-        <div class="dep-wa">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-          WhatsApp
         </div>
       </div>
     </div>
 
     <div class="dep-card">
-      <div class="dep-bubbles">
+      <div class="dep-header">
+        <div class="dep-avatar">🔁</div>
+        <div class="dep-header-info">
+          <strong>Cliente recorrente</strong>
+          <span>online</span>
+        </div>
+        <div class="dep-header-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        </div>
+      </div>
+      <div class="dep-chat">
         <div class="dep-bubble">Deu certo</div>
         <div class="dep-bubble">Amaram</div>
         <div class="dep-bubble">A dona disse que quase chorou 😂</div>
         <div class="dep-bubble">Tem mais trabalhinho hahaha</div>
       </div>
       <div class="dep-footer">
-        <div class="dep-avatar">🔁</div>
         <div class="dep-meta">
           <strong>Cliente recorrente</strong>
           <span>Vídeo de evento</span>
-        </div>
-        <div class="dep-wa">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-          WhatsApp
         </div>
       </div>
     </div>
