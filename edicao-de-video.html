@@ -134,6 +134,7 @@ nav {
 }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
+
 .hero-proof {
   display: flex; flex-wrap: wrap; gap: 24px;
   justify-content: center;
@@ -185,23 +186,53 @@ nav {
 .tipo-card p { font-size: 13px; color: var(--ink3); line-height: 1.5; }
 
 /* ── COMO FUNCIONA ── */
-.como-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 48px; margin-top: 40px; }
-.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
-.step { display: flex; flex-direction: column; gap: 12px; position: relative; }
-.step:not(:last-child)::after {
-  content: ''; position: absolute;
-  top: 20px; left: calc(100% + 0px); right: calc(-100% + 32px);
-  height: 1px; background: var(--border);
+.como-wrap {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px; margin-top: 40px;
+  position: relative; overflow: hidden;
 }
+.como-wrap::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.steps-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  gap: 0; align-items: start;
+}
+.steps-arrow {
+  display: flex; align-items: center; justify-content: center;
+  padding-top: 52px; color: var(--accent); opacity: 0.4;
+}
+.step { display: flex; flex-direction: column; gap: 14px; padding-right: 20px; }
+.step:last-child { padding-right: 0; }
 .step-num {
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--accent); color: #fff;
   font-size: 15px; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.4);
 }
+.step-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--accent-bg); border: 1px solid rgba(99,102,241,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.step-icon svg { color: var(--accent); }
 .step h3 { font-size: 15px; font-weight: 700; color: var(--ink); }
-.step p { font-size: 13px; color: var(--ink3); line-height: 1.6; }
+.step p { font-size: 13px; color: var(--ink3); line-height: 1.65; }
+.step-detail { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.step-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.15);
+  border-radius: 6px; padding: 4px 10px;
+  font-size: 11px; font-weight: 600; color: var(--accent);
+  width: fit-content;
+}
 
 /* ── PORTFÓLIO ── */
 .portfolio-grid {
@@ -433,8 +464,10 @@ a.tipo-card:hover {
   .btn-primary, .btn-ghost { justify-content: center; }
   .hero-proof { gap: 14px; }
   .section { padding: 48px 20px; }
-  .steps { grid-template-columns: 1fr; }
-  .step::after { display: none; }
+  .steps-wrapper { grid-template-columns: 1fr; }
+  .steps-arrow { display: none; }
+  .step { padding-right: 0; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; padding-bottom: 0; }
   .como-wrap { padding: 28px 20px; }
   .porq-grid { grid-template-columns: 1fr 1fr; }
   .cta-wrap { padding: 0 20px; }
@@ -558,7 +591,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- NAVBAR -->
 <nav>
   <a href="/" class="nav-logo">agencia<span>.</span>postei</a>
-  <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Tenho%20interesse%20em%20edi%C3%A7%C3%A3o%20de%20v%C3%ADdeo.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F"
+  <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20edi%C3%A7%C3%A3o%20de%20v%C3%ADdeo.%20Produzo%20____%20v%C3%ADdeos%20por%20m%C3%AAs%20e%20quero%20saber%20sobre%20pre%C3%A7os."
      class="nav-cta" target="_blank" rel="noopener"
      onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -576,7 +609,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p>Reels, YouTube, Podcast, Stories e Institucional.<br>
   A partir de R$80 — 3 revisões inclusas — entrega no Google Drive.</p>
   <div class="hero-ctas">
-    <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20edi%C3%A7%C3%A3o%20de%20v%C3%ADdeo%20e%20quero%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
+    <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20edi%C3%A7%C3%A3o%20de%20v%C3%ADdeo%20e%20tenho%20interesse.%20Produzo%20____%20v%C3%ADdeos%20por%20m%C3%AAs.%20Podem%20me%20passar%20um%20or%C3%A7amento%3F"
        class="btn-primary" target="_blank" rel="noopener"
        onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -599,7 +632,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="section-sub">Seja qual for o formato, editamos com corte, trilha, legenda e motion — pronto para publicar.</p>
 
   <div class="tipos-grid">
-    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Preciso%20de%20edi%C3%A7%C3%A3o%20de%20Reels%20e%20Stories%20para%20o%20Instagram.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
+    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Preciso%20de%20edi%C3%A7%C3%A3o%20de%20Reels%20para%20Instagram.%20Tenho%20aproximadamente%20_____%20v%C3%ADdeos%20por%20m%C3%AAs.%20Como%20funciona%20o%20or%C3%A7amento%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <div class="tipo-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
       </div>
@@ -607,7 +640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Vídeos curtos para Instagram e TikTok. Corte, legenda animada e ritmo de engajamento. Entrega em 24h.</p>
     </a>
 
-    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Tenho%20um%20canal%20no%20YouTube%20e%20preciso%20de%20edi%C3%A7%C3%A3o%20profissional.%20Podem%20me%20passar%20um%20or%C3%A7amento%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
+    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Tenho%20um%20canal%20no%20YouTube%20e%20preciso%20de%20edi%C3%A7%C3%A3o.%20Meus%20v%C3%ADdeos%20t%C3%AAm%20em%20m%C3%A9dia%20_____min.%20Quero%20saber%20sobre%20pre%C3%A7os." target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <div class="tipo-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
       </div>
@@ -615,7 +648,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Edição de vídeos longos, corte de erros, inserção de vinheta, cards e tela final.</p>
     </a>
 
-    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Gravo%20um%20podcast%20e%20tenho%20interesse%20em%20edi%C3%A7%C3%A3o.%20Como%20funciona%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
+    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Gravo%20um%20podcast%20e%20quero%20edi%C3%A7%C3%A3o.%20S%C3%A3o%20epis%C3%B3dios%20de%20aproximadamente%20_____min%20e%20lan%C3%A7o%20_____x%20por%20m%C3%AAs.%20Como%20funciona%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <div class="tipo-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
       </div>
@@ -623,7 +656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Corte de episódios, remoção de vícios de linguagem, clipes para divulgação nas redes.</p>
     </a>
 
-    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Preciso%20de%20um%20v%C3%ADdeo%20institucional%20para%20minha%20empresa.%20Podem%20me%20passar%20um%20or%C3%A7amento%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
+    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Preciso%20de%20um%20v%C3%ADdeo%20institucional%20para%20minha%20empresa.%20J%C3%A1%20temos%20o%20material%20gravado%20%2F%20ainda%20vamos%20gravar.%20Como%20funciona%20o%20or%C3%A7amento%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <div class="tipo-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       </div>
@@ -631,7 +664,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Vídeos de apresentação da empresa, cases, depoimentos e apresentação de produtos.</p>
     </a>
 
-    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Preciso%20de%20criativos%20em%20v%C3%ADdeo%20para%20an%C3%BAncios%20no%20Meta%20ou%20Google.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
+    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Preciso%20de%20v%C3%ADdeo%20de%20venda%20para%20an%C3%BAncios%20no%20Meta.%20J%C3%A1%20tenho%20o%20material%20gravado%20%2F%20ainda%20vou%20gravar.%20Como%20funciona%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <div class="tipo-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
       </div>
@@ -639,13 +672,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Criativos para anúncios pagos no Meta e Google. Foco em hook, prova social e CTA.</p>
     </a>
 
-    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Tenho%20um%20evento%20ou%20formatura%20e%20preciso%20de%20edi%C3%A7%C3%A3o%20do%20v%C3%ADdeo.%20Pode%20me%20dar%20mais%20detalhes%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
+    <a class="tipo-card" href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Tenho%20um%20evento%20%2F%20formatura%20e%20preciso%20de%20edi%C3%A7%C3%A3o%20do%20v%C3%ADdeo.%20O%20evento%20%C3%A9%20em%20____%20e%20tenho%20aproximadamente%20_____h%20de%20material.%20Como%20funciona%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <div class="tipo-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </div>
       <h3>Evento & Formatura</h3>
       <p>Edição de cobertura de eventos, formaturas e comemorações com trilha e identidade.</p>
     </a>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA — movido para antes dos preços -->
+<div class="section" style="padding-top: 0">
+  <span class="section-label">Como funciona</span>
+  <h2 class="section-title">Simples do início ao fim</h2>
+  <p class="section-sub">Você não precisa entender de edição. Só gravar e mandar.</p>
+
+  <div class="como-wrap">
+    <div class="steps-wrapper">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <h3>Você envia o bruto</h3>
+        <p>Manda o material pela plataforma que preferir — Google Drive, WeTransfer, Dropbox ou onde for mais fácil para você.</p>
+        <div class="step-detail">
+          <span class="step-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Sem app para instalar</span>
+          <span class="step-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Qualquer câmera ou celular</span>
+        </div>
+      </div>
+
+      <div class="steps-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h3>A gente edita e envia para revisão</h3>
+        <p>Editamos com corte, trilha, legenda e motion. Você recebe o vídeo para revisão e tem 3 rodadas para ajustar.</p>
+        <div class="step-detail">
+          <span class="step-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Reels prontos em 24h</span>
+          <span class="step-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>3 revisões inclusas</span>
+        </div>
+      </div>
+
+      <div class="steps-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Aprovado, entregue no Drive</h3>
+        <p>Arquivo final disponível no Google Drive. Reels e Stories em 24h. Vídeos mais longos ou complexos têm prazo combinado no início do projeto.</p>
+        <div class="step-detail">
+          <span class="step-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Google Drive organizado</span>
+          <span class="step-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Acesse quando quiser</span>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -724,34 +817,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
   </div>
-  <p class="preco-note">Produz 10 ou mais vídeos por mês? <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Produzo%2010%20ou%20mais%20v%C3%ADdeos%20por%20m%C3%AAs%20e%20quero%20saber%20sobre%20pacote%20mensal." target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">Fale sobre pacote mensal →</a></p>
-</div>
-
-<!-- COMO FUNCIONA -->
-<div class="section" style="padding-top: 0">
-  <span class="section-label">Como funciona</span>
-  <h2 class="section-title">Simples do início ao fim</h2>
-  <p class="section-sub">Você não precisa entender de edição. Só gravar e mandar.</p>
-
-  <div class="como-wrap">
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Você envia o bruto</h3>
-        <p>Manda o material pela plataforma que preferir — Google Drive, WeTransfer, Dropbox ou onde for mais fácil para você.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>A gente edita e envia</h3>
-        <p>Editamos com corte, trilha, legenda e motion. Você recebe o vídeo para revisão e tem 3 rodadas para ajustar.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Aprovado, entregue</h3>
-        <p>Arquivo final disponível no Google Drive. Reels e Stories em 24h. Vídeos mais longos ou complexos têm prazo combinado no início do projeto.</p>
-      </div>
-    </div>
-  </div>
+  <p class="preco-note">Produz 10 ou mais vídeos por mês? <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Produzo%20_____v%C3%ADdeos%20por%20m%C3%AAs%20e%20quero%20saber%20sobre%20pacote%20mensal.%20Quais%20os%20formatos%20dispon%C3%ADveis%3F" target="_blank" rel="noopener" onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">Fale sobre pacote mensal →</a></p>
 </div>
 
 <!-- PORTFÓLIO -->
@@ -972,7 +1038,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="cta-section">
     <h2>Você grava. A gente faz o resto.</h2>
     <p>Envie uma mensagem e receba um orçamento.</p>
-    <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Quero%20contratar%20o%20servi%C3%A7o%20de%20edi%C3%A7%C3%A3o%20de%20v%C3%ADdeo.%20Como%20come%C3%A7o%3F"
+    <a href="https://wa.me/5516993269757?text=Ol%C3%A1!%20Quero%20edi%C3%A7%C3%A3o%20de%20v%C3%ADdeo.%20Produzo%20_____v%C3%ADdeos%20por%20m%C3%AAs%20%28formato%3A%20_____).%20Como%20come%C3%A7o%3F"
        class="btn-primary-inv" target="_blank" rel="noopener"
        onclick="window.dataLayer && window.dataLayer.push({event:'whatsapp_click'})">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
