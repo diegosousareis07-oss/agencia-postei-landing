@@ -19,26 +19,22 @@
   <style>
     :root {
       --preto:        #0D0D0D;
-      --creme:        #ECE6DC;
-      --creme-soft:   #F4F0E8;
-      --creme-stone:  #DDD7CC;
-      --creme-dark:   #CEC7BA;
-      --branco:       #F0F0F0;
-      --ink:          #1A1A1A;
-      --ink-soft:     #4A4A4A;
-      --ink-muted:    #8A8070;
-      --rosa:         #FF0080;
+      --surface:      #111111;
+      --surface2:     #161616;
+      --branco:       #F5F2ED;
+      --ink:          #F5F2ED;
+      --ink-soft:     rgba(245,242,237,.65);
+      --ink-muted:    rgba(245,242,237,.38);
       --azul:         #1A4DFF;
-      --amarelo:      #FFD100;
       --verde:        #39FF14;
-      --line:         rgba(0,0,0,0.09);
+      --line:         rgba(255,255,255,0.08);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--creme);
+      background: var(--preto);
       color: var(--ink);
       font-family: 'Instrument Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -53,7 +49,7 @@
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 99;
-      background: rgba(236,230,220,.94);
+      background: rgba(13,13,13,.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
@@ -71,7 +67,7 @@
       letter-spacing: -0.02em;
     }
 
-    .logo-text em { font-style: italic; color: var(--rosa); }
+    .logo-text em { font-style: italic; color: var(--azul); }
 
     .nav-right { display: flex; align-items: center; gap: 24px; }
 
@@ -85,17 +81,17 @@
 
     .nav-btn {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 9px 18px; background: var(--preto); color: var(--branco);
+      padding: 9px 18px; background: var(--azul); color: #fff;
       font-size: 13px; font-weight: 500; border-radius: 5px;
       text-decoration: none; transition: background .18s;
     }
 
-    .nav-btn:hover { background: var(--rosa); }
+    .nav-btn:hover { background: #1040e0; }
 
     /* ── HERO ── */
     #hero {
       padding: 120px 0 80px;
-      background: var(--creme);
+      background: var(--preto);
       border-bottom: 1px solid var(--line);
     }
 
@@ -113,7 +109,7 @@
       text-wrap: balance;
     }
 
-    .hero-h1 em { font-style: italic; color: var(--rosa); }
+    .hero-h1 em { font-style: italic; color: var(--azul); }
 
     .hero-bottom {
       display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
@@ -145,8 +141,8 @@
     }
 
     .projeto-card {
-      background: var(--branco);
-      border: 1px solid var(--creme-dark);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 6px;
       overflow: hidden;
       display: flex; flex-direction: column;
@@ -155,9 +151,9 @@
     }
 
     .projeto-card:hover {
-      background: var(--creme-soft);
+      background: var(--surface2);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+      box-shadow: 0 6px 24px rgba(0,0,0,.4);
     }
 
     /* ── VISUAL DO PROJETO ── */
@@ -230,11 +226,11 @@
     .tag {
       font-size: 9px; font-weight: 500; letter-spacing: .08em;
       text-transform: uppercase; padding: 3px 7px;
-      border-radius: 100px; border: 1px solid var(--creme-dark);
+      border-radius: 100px; border: 1px solid rgba(255,255,255,.12);
       color: var(--ink-muted);
     }
 
-    .tag-segmento { background: var(--preto); color: rgba(255,255,255,.7); border-color: transparent; }
+    .tag-segmento { background: var(--azul); color: #fff; border-color: transparent; }
 
     .projeto-titulo {
       font-family: 'Fraunces', serif;
@@ -306,7 +302,7 @@
       transition: background .15s;
     }
 
-    #modal-close:hover { background: rgba(255,0,128,.7); }
+    #modal-close:hover { background: rgba(26,77,255,.7); }
 
     @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
     @keyframes scaleIn { from { transform: scale(.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -314,7 +310,7 @@
     /* ── SEÇÃO DE CATEGORIAS ── */
     .cat-section {
       padding: clamp(48px, 6vw, 80px) 0;
-      background: var(--branco);
+      background: var(--surface);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
@@ -331,7 +327,7 @@
       text-wrap: balance;
     }
 
-    .sec-title em { font-style: italic; color: var(--rosa); }
+    .sec-title em { font-style: italic; color: var(--azul); }
 
     .sec-sub {
       font-size: 15px; color: var(--ink-soft); line-height: 1.7;
@@ -340,13 +336,13 @@
 
     .tipos-grid {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 0;
-      border: 1px solid var(--creme-dark); border-radius: 6px;
+      border: 1px solid var(--line); border-radius: 6px;
       overflow: hidden; margin-top: 40px;
     }
 
     .tipo-item {
       padding: 36px 32px;
-      border-right: 1px solid var(--creme-dark);
+      border-right: 1px solid var(--line);
       display: flex; flex-direction: column; gap: 10px;
     }
 
@@ -382,14 +378,14 @@
       text-wrap: balance;
     }
 
-    .cta-h em { font-style: italic; color: var(--rosa); }
+    .cta-h em { font-style: italic; color: var(--azul); }
 
     .cta-right { display: flex; flex-direction: column; gap: 20px; }
     .cta-desc { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.7; }
 
     .btn-cta {
       display: inline-flex; align-items: center; gap: 10px;
-      padding: 15px 28px; background: var(--rosa); color: #fff;
+      padding: 15px 28px; background: var(--azul); color: #fff;
       font-size: 14px; font-weight: 500; border-radius: 6px;
       text-decoration: none; align-self: flex-start;
       transition: transform .15s, opacity .15s;
@@ -416,7 +412,7 @@
       color: rgba(255,255,255,0.5); text-decoration: none;
     }
 
-    .foot-logo-text em { font-style: italic; color: var(--rosa); opacity: 0.6; }
+    .foot-logo-text em { font-style: italic; color: var(--azul); opacity: 0.7; }
 
     .foot-links { display: flex; gap: 24px; }
     .foot-links a { font-size: 13px; color: rgba(255,255,255,.3); text-decoration: none; transition: color .18s; }
@@ -433,7 +429,7 @@
       .hero-meta { align-items: flex-start; }
       .projetos-grid { grid-template-columns: repeat(3, 1fr); }
       .tipos-grid { grid-template-columns: 1fr; }
-      .tipo-item { border-right: none; border-bottom: 1px solid var(--creme-dark); }
+      .tipo-item { border-right: none; border-bottom: 1px solid var(--line); }
       .tipo-item:last-child { border-bottom: none; }
       .cta-inner { grid-template-columns: 1fr; gap: 40px; }
     }
@@ -795,8 +791,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="tipos-grid reveal">
       <div class="tipo-item">
-        <div class="tipo-icone" style="background:rgba(255,0,128,.12)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF0080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <div class="tipo-icone" style="background:rgba(26,77,255,.15)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A4DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
         <h3 class="tipo-titulo">Design &amp; Identidade</h3>
         <p class="tipo-desc">Posts, stories, carrosseis, banners, peças para impulsionamento e identidade visual completa.</p>
@@ -830,7 +826,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" style="flex-shrink:0"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Falar no WhatsApp
         </a>
-        <p class="cta-note">Respondemos em até 2 horas em dias úteis.</p>
+        <p class="cta-note">Respondemos em dias úteis.</p>
       </div>
     </div>
   </div>
